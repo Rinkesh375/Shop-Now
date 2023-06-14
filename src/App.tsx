@@ -1,14 +1,14 @@
+import React from 'react';
 
-import SimpleSidebar from "./Pages/ProductPage";
+import './App.css';
+import AdminLoginPage from './Pages/AdminLoginPage';
 
-import CartList from "./Componants/CartList";
 
 function App() {
   return (
     <div className="App">
-      <SimpleSidebar>
-        <CartList />
-      </SimpleSidebar>
+        <AdminLoginPage />
+      
     </div>
   );
 }
