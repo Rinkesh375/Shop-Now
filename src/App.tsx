@@ -1,13 +1,15 @@
 import React from 'react';
 
 import './App.css';
-import AdminLoginPage from './Pages/AdminLoginPage';
+
+import MainRoutes from './AllRoutes/MainRoutes';
 
 
 function App() {
   return (
     <div className="App">
-        <AdminLoginPage />
+        {/* <AdminLoginPage /> */}
+        <MainRoutes/>
       
     </div>
   );
