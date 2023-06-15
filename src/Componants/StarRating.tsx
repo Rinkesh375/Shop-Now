@@ -3,7 +3,7 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 interface RatingProps {
   rating: number;
-  numReviews: number;
+  numReviews: string;
 }
 const StarRating = ({ rating, numReviews }: RatingProps) => {
   return (
@@ -27,7 +27,7 @@ const StarRating = ({ rating, numReviews }: RatingProps) => {
           return <BsStar key={i} style={{ marginLeft: "1" }} />;
         })}
       <Box as="span" ml="2" color="gray.600" fontSize="sm">
-        {numReviews} review{numReviews > 1 && "s"}
+        {numReviews} review{numReviews && "s"}
       </Box>
     </Box>
   );

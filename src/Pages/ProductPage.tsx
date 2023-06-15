@@ -18,29 +18,14 @@ import {
   Badge,
   Radio,
   RadioGroup,
-//   Link,
-//   Icon,
 } from "@chakra-ui/react";
 
 import { FiMenu } from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
+
 import { Breadcrumb } from "@chakra-ui/react";
 import { BreadcrumbItem } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { BreadcrumbLink } from "@chakra-ui/react";
-
-// interface LinkItemProps {
-//   name: string;
-//   icon: IconType;
-// }
-// const LinkItems: Array<LinkItemProps> = [
-//   { name: "Home", icon: FiHome },
-//   { name: "Trending", icon: FiTrendingUp },
-//   { name: "Explore", icon: FiCompass },
-//   { name: "Favourites", icon: FiStar },
-//   { name: "Settings", icon: FiSettings },
-// ];
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
