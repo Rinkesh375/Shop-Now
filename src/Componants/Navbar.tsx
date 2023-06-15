@@ -2,19 +2,20 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Image,
-  Button,
   MenuButton,
   MenuList,
   MenuItem,
   Menu,
   IconButton,
-  Input
+  Input,
+  Text,
+  Flex,
+  Center
 } from "@chakra-ui/react";
-import { GrLogin } from "react-icons/gr";
-import {GrCart} from "react-icons/gr";
-import {GrShop} from "react-icons/gr"
-import {GrSearch} from "react-icons/gr"
-import { Link } from "react-router-dom";
+import { VscAccount } from "react-icons/vsc";
+import { GrCart } from "react-icons/gr";
+import { HashLink as Link } from "react-router-hash-link";
+import { SearchIcon } from "@chakra-ui/icons"
 const Navbar = () => {
   const myStyle = {
     color: "black",
@@ -22,6 +23,9 @@ const Navbar = () => {
   };
   return (
     <Box
+      fontFamily='Poppins,sans-serif'
+      letterSpacing="wide"
+      fontWeight="bold"
       height={{
         base: "15%",
         sm: "15%", // 0-48em
@@ -37,8 +41,7 @@ const Navbar = () => {
         alignItems: "center",
         textDecoration: "none",
         top: "0",
-        height: "80px",
-        borderBottom: "2px solid black"
+        height: "100px",
       }}
     >
       <Box
@@ -60,20 +63,20 @@ const Navbar = () => {
             <MenuItem as="a" href="/">
               Home
             </MenuItem>
-            <MenuItem as="a" href="blog">
-              Blog
+            <MenuItem as="a" href="#new-arrivals">
+              New Arrivals
             </MenuItem>
             <MenuItem as="a" href="#about-us">
               About
             </MenuItem>
-            <MenuItem as="a" href="products">
+            <MenuItem as="a" href="collection">
               Collection
             </MenuItem>
-            <MenuItem as="a" href="member">
+            <MenuItem as="a" href="cart">
               Cart
             </MenuItem>
-            <MenuItem as="a" href="member">
-              Shop
+            <MenuItem as="a" href="login">
+              Login
             </MenuItem>
           </MenuList>
         </Menu>
@@ -93,20 +96,18 @@ const Navbar = () => {
           "55%", // 48em-62em
           "45%",
           "40%", // 62em+
-        ]}
-        
-      >
-        <Link style={myStyle} to="/">
+        ]}>
+        <Link style={myStyle} to="/#">
           Home
         </Link>
-        <Link style={myStyle} to="/about">
+        <Link style={myStyle} to="/#about-us">
           About
         </Link>
-        <Link style={myStyle} to="/collection">
+        <Link style={myStyle} to="/#collection">
           Collection
         </Link>
-        <Link style={myStyle} to="/blog">
-          Blog
+        <Link style={myStyle} to="/#new-arrivals" smooth>
+          New Arrivals
         </Link>
       </Box>
       <Box display={{ sm: "none", md: "flex", xl: "flex", base: "none" }}
@@ -119,67 +120,24 @@ const Navbar = () => {
           "19%",
           "25%",
         ]}>
-      <Input variant='flushed' placeholder='search' />
-        <Button
-        _hover={{bagroundColor:"white"}}
-            cursor="pointer"
-            borderRadius="6px"
-            border="none"
-            padding="3px 8px"
-            fontWeight="bold"
-          >
-            <GrSearch/>
-          </Button>
+        <Input position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
+        {/* <GrSearch /> */}
+        <SearchIcon w="18px" h="18px" position="absolute" right="295px" top="45px" color="gray" />
       </Box>
-      <Box
-        display={{ sm: "none", md: "flex", xl: "flex", base: "none" }}
-        justifyContent="space-between"
-        width={[
-          "60%", // 0-30em
-          "45%", // 30em-48em
-          "30%", // 48em-62em
-          "26%", // 62em+
-          "19%",
-          "12%",
-        ]}
-       
-      >
+      <Flex fontFamily='Poppins,sans-serif' display={{ sm: "none", md: "flex", xl: "flex", base: "none" }} justifyContent="space-around" width={[
+        "60%", // 0-30em
+        "45%", // 30em-48em
+        "30%", // 48em-62em
+        "26%", // 62em+
+        "19%",
+        "13%",
+      ]}>
+        <Link to="/#">
+        <Center fontSize="15px" flexDirection="column" cursor="pointer"><VscAccount size="28px" /><Text marginTop="5px">Login</Text></Center>
+        </Link >
+          <Link to="/#"><Center fontSize="15px" flexDirection="column" cursor="pointer"><GrCart size="28px" /><Text marginTop="5px">Cart</Text></Center></Link>    
         
-        <Link to={"/products"}>
-          <Button
-            borderRadius="6px"
-            backgroundColor="#2FD0DA"
-            border="none"
-            padding="3px 8px"
-            color="#06181C"
-            fontWeight="bold"
-          >
-            <GrShop/>
-          </Button>
-        </Link>
-        <Link to="/cart">
-          <Button
-            cursor="pointer"
-            borderRadius="6px"
-            backgroundColor="#2FD0DA"
-            border="none"
-            padding="3px 8px"
-            color="#06181C"
-            fontWeight="bold"
-          >
-            <GrCart/>
-          </Button>
-        </Link>
-        <Button
-          borderRadius="6px"
-          backgroundColor="#2FD0DA"
-          border="none"
-          padding="3px 8px"
-          color="#06181C"
-          fontWeight="bold">
-          <GrLogin />
-        </Button>
-      </Box>
+      </Flex>
     </Box>
   );
 };

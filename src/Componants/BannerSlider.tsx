@@ -10,20 +10,25 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 
 interface Product {
   image: string;
+  id:number
 }
 
 const products: Product[] = [
   {
     image: "https://belk.scene7.com/is/image/Belk/wk09_032723_hp_rl_fh1_carl?$DWP_PHOTO$",
+    id:1
   },
   {
     image: "https://belk.scene7.com/is/image/Belk/wk09_032723_hp_rl_fh2_carl?$DWP_PHOTO$",
+    id:2
   },
   {
     image: "https://belk.scene7.com/is/image/Belk/wk09_032723_hp_rl_fh3_carl?$DWP_PHOTO$",
+    id:3
   },
   {
     image: "https://belk.scene7.com/is/image/Belk/wk09_032723_hp_rl_fh4_carl?$DWP_PHOTO$",
+    id:4
   },
 ];
 
@@ -33,9 +38,9 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Box width="100%" overflow="hidden" margin="10px">
+    <Box width="100%" overflow="hidden" key={product.id}>
       <Box width="100%">
-        <Image  src={`${product.image}`} width="100%"/>
+        <Image borderRadius="30px" src={`${product.image}`} width="100%"/>
       </Box>
     </Box>
   );
@@ -65,10 +70,10 @@ const BannerSlider: React.FC = () => {
     currentSlide + 1 >= products.length ? products.length - 1 : currentSlide;
 
   return (
-    <Box position="relative" w="full" maxW="100%" mx="auto" marginTop="30px">
+    <Box position="relative" w="full" maxW="97%" mx="auto">
       <Flex w="full" overflow="hidden">
         {products.slice(firstIndex, lastIndex + 1).map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <ProductCard product={product} />
         ))}
       </Flex>
 

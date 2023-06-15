@@ -7,7 +7,7 @@ const MainRoutes = () => {
     <div>
         <Routes>
             <Route path='/' element={<Home/>}></Route>
-            <Route path='/product-Page' ></Route>
+            <Route path='/collection'></Route>
             <Route></Route>
             <Route></Route>
             <Route></Route>
