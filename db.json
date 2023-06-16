@@ -7,32 +7,17 @@
   ],
   "products": [
     {
-      "ratings": 4.2,
-      "reviews": "28k",
-      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1996777/2022/11/22/336445a8-fa32-4396-914a-2629b49465d31669112704759RoadsterMenBlackCottonPureCottonT-shirt1.jpg",
-      "brand": "Roadster",
-      "title": "Men Cotton Pure Cotton T-shirt",
-      "size": "L",
-      "discountprice": 299,
-      "price": 499,
-      "discountPercentage": "(40% OFF)",
-      "id": 1,
-      "isNew": true,
-      "assured": true,
-      "gender": "male"
-    },
-    {
-      "ratings": 4.1,
+      "ratings": 5,
       "reviews": "2.7k",
       "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11999496/2020/7/9/28147c07-9cec-4754-9226-ade4fc7908631594292867204-HRX-by-Hrithik-Roshan-Men-Tshirts-1821594292865503-1.jpg",
-      "brand": "HRX by Hrithik Roshan",
+      "brand": "HIGHLANDER",
       "title": "Running Bio-Wash Tshirt",
       "size": "M",
-      "discountprice": 496,
-      "price": 699,
-      "discountPercentage": "(29% OFF)",
+      "discountprice": 50,
+      "price": 200,
+      "discountPercentage": "(25% OFF)",
       "id": 2,
-      "isNew": false,
+      "isNew": true,
       "assured": false,
       "gender": "male"
     },
@@ -2150,6 +2135,21 @@
       "isNew": "fasle",
       "assured": false,
       "gender": "kids"
+    },
+    {
+      "ratings": 4,
+      "reviews": "70",
+      "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/18371366/2022/5/21/fc21bd07-2a96-434b-8cbd-42ad4d99ff751653142394613HIGHLANDERMenGreenPrintedPoloCollarSlimFitT-shirt1.jpg",
+      "brand": "U.S. Polo Assn. Kids",
+      "title": "T-shirt for Rinkesh",
+      "gender": "women",
+      "size": "L",
+      "discountprice": 250,
+      "price": 500,
+      "discountPercentage": "(50% OFF)",
+      "isNew": true,
+      "assured": false,
+      "id": 144
     }
   ]
 }

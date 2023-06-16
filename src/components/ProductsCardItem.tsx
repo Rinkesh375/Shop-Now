@@ -1,8 +1,13 @@
-import { Badge, GridItem, Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, ButtonGroup, Button, Box, HStack, Flex, Spacer } from '@chakra-ui/react';
+import { Badge, GridItem, Card, CardBody, Image, Stack, Heading, Text, Divider, CardFooter, Button, Box, HStack, Flex, Spacer } from '@chakra-ui/react';
 import React from 'react';
 import { ProductObj } from 'src/constraints/types';
+import { Link } from 'react-router-dom';
+interface PropType extends ProductObj {
+  deleteProduct:(id:number)=>void
+}
 
-const ProductsCardItem = ({ ratings, reviews, image, brand, title, size, discountprice, price, discountPercentage, id, isNew, assured, gender }: ProductObj) => {
+const ProductsCardItem = ({ ratings, reviews, image, brand, title, size, discountprice, price, discountPercentage, id, isNew, assured, gender,deleteProduct }: PropType) => {
+
   return (
     <GridItem boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px">
       <Heading>{id--}</Heading>
@@ -29,12 +34,17 @@ const ProductsCardItem = ({ ratings, reviews, image, brand, title, size, discoun
         <CardFooter>
           <Flex width="100%" justifyContent="space-evenly">
             <Box>
+              <Link to={`/admin-edit-product/${id+1}`}>
               <Button variant='solid' colorScheme='blue'>
                 Edit
               </Button>
+              </Link>
             </Box>
             <Spacer />
-            <Box> <Button variant='solid' colorScheme='blue'>
+            <Box> <Button variant='solid'  colorScheme='blue' onClick={()=>{
+           
+              deleteProduct(id+1)
+            }}>
               Delete
             </Button></Box>
           </Flex>

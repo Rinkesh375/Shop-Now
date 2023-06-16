@@ -45,7 +45,7 @@ const AdminLoginRight = () => {
               
                 </form>
 
-                <Heading color="#4361ee" as="h6" size='xs'>Create an account/<NavLink style={{textDecoration:"underline"}} to="/admin-register">Register</NavLink></Heading>
+                
             </Stack>
 
         </GridItem>

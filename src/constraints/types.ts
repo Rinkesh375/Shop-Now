@@ -35,7 +35,6 @@ export interface ProductObj{
 export interface ProductState {
     productArr:ProductObj[];
     isError:boolean;
-    isLoading:boolean
-
-  
+    isLoading:boolean;
+    totalResult:number;
 }
