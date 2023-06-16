@@ -33,7 +33,7 @@ const Footer = () => {
                     <Heading color="white">Newsletter</Heading>
                     <Text color="gray" width="70%">Get the latest about us and signup to get 10% off today.Never miss a single promo.</Text>
                     <Flex>
-                        <Input borderColor="gray" width="70%" placeholder="Enter email address"></Input>
+                        <Input borderColor="gray" color="white" width="70%" placeholder="Enter email address"></Input>
                         <Button color="white" bgColor="#FA6F1E" padding="20px" borderRadius="10px" width="30%">SUBSCRIBE</Button>
                     </Flex>
                     <Flex justifyContent="space-between" width="35%" margin="20px" >

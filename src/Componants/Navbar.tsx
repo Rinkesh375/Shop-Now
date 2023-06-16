@@ -83,7 +83,7 @@ const Navbar = () => {
       </Box>
       <Box width={["40%", "20%", "10%", "6%"]}>
         <Link to="/#" >
-          <Image src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png" width="100px"></Image>
+          <Image bgColor='white' src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png" width="100px"></Image>
         </Link>
       </Box>
       <Box
@@ -100,10 +100,10 @@ const Navbar = () => {
         <Link style={myStyle} to="/#">
           Home
         </Link>
-        <Link style={myStyle} to="/#about-us">
+        <Link style={myStyle} to="/#about-us" smooth>
           About
         </Link>
-        <Link style={myStyle} to="/#collection">
+        <Link style={myStyle} to="/collection">
           Collection
         </Link>
         <Link style={myStyle} to="/#new-arrivals" smooth>
@@ -120,7 +120,7 @@ const Navbar = () => {
           "19%",
           "25%",
         ]}>
-        <Input position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
+        <Input paddingLeft="15px" borderRadius="7px" position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
         {/* <GrSearch /> */}
         <SearchIcon w="18px" h="18px" position="absolute" right="295px" top="45px" color="gray" />
       </Box>

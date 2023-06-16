@@ -88,6 +88,33 @@ let data = [
     "category": "Accessories",
     "image": "https://n3.sdlcdn.com/imgs/j/p/k/David-Miller-White-Dial-Tan-SDL580697508-1-fe766.jpg",
     "id": 9
+  },
+  {
+    "name": "SVARCHI - Green Cotton Women's Straight Kurti ( Pack of 1 )",
+    "price": 539,
+    "rating": 4,
+    "gender": "Womens",
+    "category": "Top",
+    "image": "https://n1.sdlcdn.com/imgs/k/i/l/SVARCHI-Green-Cotton-Women-s-SDL629187261-1-4af13.jpg",
+    "id": 10
+  },
+  {
+    "name": "STANFIELD GIRLS UNIFORM SCHOOL ANKLE BELLY",
+    "price": 219,
+    "rating": 4.2,
+    "gender": "Girls",
+    "category": "Footware",
+    "image": "https://n2.sdlcdn.com/imgs/k/j/c/STANFIELD-GIRLS-UNIFORM-SCHOOL-ANKLE-SDL034190311-1-230d8.jpg",
+    "id": 11
+  },
+  {
+    "name": "BUNNIES Latest Girl's LED Leight Shoes For ( 5 TO 13 Years )",
+    "price": 449,
+    "rating": 4.1,
+    "gender": "Girls",
+    "category": "Footware",
+    "image": "https://n4.sdlcdn.com/imgs/j/u/o/BUNNIES-Latest-Girl-s-LED-SDL972433981-1-01137.jpg",
+    "id": 12
   }
 ]
 const Home = () => {
@@ -109,10 +136,14 @@ const Home = () => {
       <div style={{ width: "100%" }}>
         <BannerSlider />
       </div>
+      <Box fontFamily='Poppins,sans-serif' id='about-us' fontWeight='bold'  borderRadius="40px" paddingTop="8%" paddingLeft="2%" backgroundSize="100%" height="500px" backgroundImage="https://images.jdmagicbox.com/comp/bangalore/f9/080pxx80.xx80.180411134259.f2f9/catalogue/addict-clothing-co-apparels-bommanahalli-bangalore-readymade-garment-retailers-5i9rrtrghs.jpg?clr=" width="97%" margin="auto" marginBottom="30px">
+        <Heading marginBottom="20px">About Us</Heading>
+        <Text fontSize="20px" width="60%">THE SHOP NOW caters to thoughtful shoppers who appreciate unique designs and top quality pieces you just can’t find anywhere else. We are constantly curating fresh new collections and looking for the next big thing our customers will love. Founded in Vienna in 2019, we are proud to be your Online Clothing Shop that you can rely on for our expert service and care.</Text>
+      </Box>
       <Box id='new-arrivals' width="92%" marginTop="30px" fontFamily='Poppins,sans-serif' letterSpacing="wide" fontWeight="bold" margin="auto">
         <Heading>2023 New Arrivals</Heading>
         <Flex marginTop="20px" marginBottom="30px">
-          <SimpleGrid margin="auto" columns={3} gap="40px">
+          <SimpleGrid margin="auto" columns={[1,2,3,4]} gap="40px">
             {data?.map((ele) => {
               return (
                 <Link to="#">
