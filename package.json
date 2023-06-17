@@ -17,6 +17,7 @@
     "@types/react-router-hash-link": "^2.4.6",
     "@types/styled-components": "^5.1.26",
     "axios": "^1.4.0",
+    "firebase": "^9.22.2",
     "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

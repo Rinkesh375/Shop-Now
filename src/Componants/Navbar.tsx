@@ -68,10 +68,11 @@ const Navbar = () => {
             <MenuItem as="a" href="products">
               products
             </MenuItem>
-            <MenuItem as="a" href="cart">
+            <MenuItem as="a" href="/cart">
+              
               Cart
             </MenuItem>
-            <MenuItem as="a" href="login">
+            <MenuItem as="a" href="/login">
               Login
             </MenuItem>
           </MenuList>
