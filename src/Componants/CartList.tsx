@@ -1,39 +1,73 @@
 import { SimpleGrid } from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
+
+// import { getData } from "../Redux/Product/action";
+import ProductError from "./ProductError";
 import CartCard from "./CartCard";
-const data = [
-  {
-    isNew: true,
-    assured: false,
-    imageURL:
-      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4600&q=80",
-    name: "Wayfarer Classic",
-    price: 100,
-    rating: 2.5,
-    numReviews: 99,
-    id: 1,
-    size: ["S", "M", "X", "XL", "XXL"],
-  },
-  {
-    isNew: false,
-    assured: true,
-    imageURL:
-      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4600&q=80",
-    name: "Wayfarer Classic",
-    price: 8800,
-    rating: 4.5,
-    numReviews: 34,
-    id: 2,
-    size: ["S", "M", "X"],
-  },
-];
+import { getProducts } from "../Redux/Product/product.action";
+import { useAppDispatch, useAppSelector } from "../Redux/store";
+import { useSearchParams } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function CartList() {
+  const { loading, error, data } = useAppSelector(
+    (store: any) => store.ProuductReducer
+  );
+  console.log(loading, error, data);
+  const dispatch: any = useAppDispatch();
+  const [searchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
+
+  interface MyObject {
+    params: {
+      category: string[];
+      gender: string[];
+      _sort?: string | null;
+      _order?: string | null;
+      _page?: number;
+      _limit: number;
+    };
+  }
+
+  const obj: MyObject = {
+    params: {
+      category: searchParams.getAll("category"),
+      gender: searchParams.getAll("gender"),
+      _sort: searchParams.get("order") && "price",
+      _order: searchParams.get("order"),
+      _page: page + 1,
+      _limit: 15,
+    },
+  };
+  const fetchData = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  useEffect(() => {
+    dispatch(getProducts(obj));
+  }, [searchParams, page]);
   return (
-    <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }} spacing={10}>
-      {data?.map((el) => (
-        <CartCard key={el.id} {...el} />
-      ))}
-    </SimpleGrid>
+    <>
+      {/* {loading ? (
+      // <ProductError />
+      ) : error ? (
+        // <ProductError />
+      ) : ( */}
+      <InfiniteScroll
+        dataLength={data.length}
+        next={fetchData}
+        hasMore={true}
+        loader={<h4>Loading...</h4>}>
+        <SimpleGrid
+          columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
+          spacing={5}>
+          {data?.map((el: any) => (
+            <CartCard key={el.id} {...el} />
+          ))}
+        </SimpleGrid>
+      </InfiniteScroll>
+      {/* )} */}
+    </>
   );
 }
 

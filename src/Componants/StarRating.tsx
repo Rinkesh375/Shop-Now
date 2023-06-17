@@ -3,11 +3,18 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 interface RatingProps {
   rating: number;
-  numReviews: number;
+  numReviews: string;
+  size?: string;
 }
-const StarRating = ({ rating, numReviews }: RatingProps) => {
+const StarRating = ({ rating, numReviews, size }: RatingProps) => {
   return (
-    <Box display="flex" alignItems="center">
+    <Box
+      display="flex"
+      alignItems="center"
+      color={"yellow.500"}
+      {...(size && {
+        fontSize: { base: `2${size}`, sm: `4${size}`, lg: `4${size}` },
+      })}>
       {Array(5)
         .fill("")
         .map((_, i) => {
@@ -26,8 +33,8 @@ const StarRating = ({ rating, numReviews }: RatingProps) => {
           }
           return <BsStar key={i} style={{ marginLeft: "1" }} />;
         })}
-      <Box as="span" ml="2" color="gray.600" fontSize="sm">
-        {numReviews} review{numReviews > 1 && "s"}
+      <Box as="span" ml="2" color="gray.600" fontSize="sm" >
+        {numReviews} review{numReviews && "s"}
       </Box>
     </Box>
   );

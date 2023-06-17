@@ -18,37 +18,56 @@ import {
   Badge,
   Radio,
   RadioGroup,
-//   Link,
-//   Icon,
+  Breadcrumb,
+  CheckboxGroup,
+  BreadcrumbLink,
+  BreadcrumbItem,
 } from "@chakra-ui/react";
-
+import { useSearchParams } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { IconType } from "react-icons";
-import { ReactText } from "react";
-import { Breadcrumb } from "@chakra-ui/react";
-import { BreadcrumbItem } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { BreadcrumbLink } from "@chakra-ui/react";
 
-// interface LinkItemProps {
-//   name: string;
-//   icon: IconType;
-// }
-// const LinkItems: Array<LinkItemProps> = [
-//   { name: "Home", icon: FiHome },
-//   { name: "Trending", icon: FiTrendingUp },
-//   { name: "Explore", icon: FiCompass },
-//   { name: "Favourites", icon: FiStar },
-//   { name: "Settings", icon: FiSettings },
-// ];
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const initialCartegory = searchParams.getAll("category");
+  const inintialGender = searchParams.getAll("gender");
+  const [category, setCategory] = React.useState(initialCartegory || []);
+  const [gender, setGender] = React.useState(inintialGender || []);
+  const inintialsort = searchParams.get("order");
+  let [order, setOrder] = React.useState(inintialsort || "");
+
+  const handleFilterChange = (value: string[]) => {
+    setCategory(value);
+  };
+  const handleGender = (value: string[]) => {
+    setGender(value);
+  };
+  const handleOrder = (value: string) => {
+    setOrder(value);
+  };
+
+  React.useEffect(() => {
+    let params: { category?: string[]; gender?: string[]; order?: string } = {};
+    if (category.length) params.category = category;
+    if (gender.length) params.gender = gender;
+    if (order.length) params.order = order;
+    setSearchParams(params);
+  }, [category, gender, order]);
+
   return (
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
+        handleFilterChange={handleFilterChange}
+        category={category}
+        gender={gender}
+        handleGender={handleGender}
+        order={order}
+        handleOrder={handleOrder}
       />
       <Drawer
         autoFocus={false}
@@ -59,7 +78,15 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
         onOverlayClick={onClose}
         size="full">
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent
+            onClose={onClose}
+            handleFilterChange={handleFilterChange}
+            category={category}
+            gender={gender}
+            handleGender={handleGender}
+            order={order}
+            handleOrder={handleOrder}
+          />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
@@ -73,9 +100,24 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 
 interface SidebarProps extends BoxProps {
   onClose: () => void;
+  handleFilterChange: (value: string[]) => void;
+  category: string[];
+  handleGender: (value: string[]) => void;
+  gender: string[];
+  handleOrder: (value: string) => void;
+  order: string;
 }
 
-const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+const SidebarContent = ({
+  category,
+  gender,
+  order,
+  handleFilterChange,
+  handleOrder,
+  handleGender,
+  onClose,
+  ...rest
+}: SidebarProps) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.900")}
@@ -97,23 +139,31 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           <Text>
             <b>Filter By Type</b>
           </Text>
-          <Checkbox>Top ware</Checkbox>
-          <Checkbox>Bottom ware</Checkbox>
-          <Checkbox>Shoes</Checkbox>
+          <CheckboxGroup value={category} onChange={handleFilterChange}>
+            <Checkbox value={"top_ware"}>Top ware</Checkbox>
+            <Checkbox value={"bottom_ware"}>Bottom ware</Checkbox>
+            <Checkbox value={"shoes"}>Shoes</Checkbox>
+          </CheckboxGroup>
           <Divider colorScheme="blackAlpha" />
           <Text>
             <b>Filter By Gender</b>
           </Text>
-          <Checkbox>Top ware</Checkbox>
-          <Checkbox>Bottom ware</Checkbox>
-          <Checkbox>Shoes</Checkbox>
+          <CheckboxGroup value={gender} onChange={handleGender}>
+            <Checkbox value={"male"}>Male</Checkbox>
+            <Checkbox value={"women"}>Women</Checkbox>
+            <Checkbox value={"kids"}>Kids</Checkbox>
+          </CheckboxGroup>
           <Text>
             <b>Sort By Price</b>
           </Text>
-          <RadioGroup>
+          <RadioGroup onChange={handleOrder} value={order}>
             <Stack>
-              <Radio value="1">Assending</Radio>
-              <Radio value="2">Dessending</Radio>
+              <Radio value="asc" defaultChecked={order === "asc"}>
+                Assending
+              </Radio>
+              <Radio value="desc" defaultChecked={order === "desc"}>
+                Dessending
+              </Radio>
             </Stack>
           </RadioGroup>
         </Stack>

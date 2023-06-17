@@ -14,30 +14,23 @@ import {
 } from "@chakra-ui/react";
 import { MdGppGood } from "react-icons/md";
 import StarRating from "./StarRating";
-
-interface cardType {
-  isNew: boolean;
-  imageURL: string;
-  name: string;
-  price: number;
-  rating: number;
-  numReviews: number;
-  id: number;
-  assured: boolean;
-  size: string[];
-}
+import { ProductDatatype } from "../type";
 
 const CartCard = ({
-  isNew,
-  imageURL,
-  name,
-  price,
-  rating,
-  numReviews,
-  assured,
-  id,
+  ratings,
+  reviews,
+  image,
+  brand,
+  title,
   size,
-}: cardType) => {
+  discountprice,
+  price,
+  discountPercentage,
+  id,
+  isNew,
+  assured,
+  gender,
+}: ProductDatatype) => {
   return (
     <Flex>
       <Box
@@ -57,14 +50,26 @@ const CartCard = ({
           />
         )}
 
-        <Image src={imageURL} alt={`Picture of ${name}`} roundedTop="lg" />
+        <Image src={image} alt={`Picture of ${title}`} roundedTop="lg" />
 
-        <Box p="6">
-          <Box display="flex" alignItems="baseline">
+        <Box p="4">
+          <Box display="flex" alignItems="center">
             {isNew && (
               <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
                 New
               </Badge>
+            )}
+            {assured && (
+              <Tooltip
+                label="Assured"
+                bg="white"
+                placement={"top"}
+                color={"gray.800"}
+                fontSize={"1.2em"}>
+                <chakra.text pl={2} display={"flex"}>
+                  <Icon as={MdGppGood} h={7} w={7} alignSelf={"center"} />
+                </chakra.text>
+              </Tooltip>
             )}
           </Box>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
@@ -74,70 +79,56 @@ const CartCard = ({
               as="h4"
               lineHeight="tight"
               isTruncated>
-              {name}
+              {brand}
             </Box>
-            {assured && (
-              <Tooltip
-                label="Assured"
-                bg="white"
-                placement={"top"}
-                color={"gray.800"}
-                fontSize={"1.2em"}>
-                <chakra.a href={"#"} display={"flex"}>
-                  <Icon as={MdGppGood} h={7} w={7} alignSelf={"center"} />
-                </chakra.a>
-              </Tooltip>
-            )}
           </Flex>
+          <Box
+            fontSize="lg"
+            fontWeight="semibold"
+            as="h4"
+            color={"gray.500"}
+            lineHeight="tight"
+            isTruncated>
+            {title}
+          </Box>
 
           <Flex justifyContent="space-between" alignContent="center">
-            <StarRating rating={rating} numReviews={numReviews} />
+            <StarRating rating={ratings} numReviews={reviews} />
           </Flex>
-          <Flex
-            // justifyContent="space-around"
-            // alignContent="center"
-            alignItems="baseline">
+          <Flex alignItems="baseline">
             <Box
               fontSize="xl"
               fontWeight={"bold"}
               color={useColorModeValue("gray.800", "white")}>
-              <Box
-                as="span"
-                color={"gray.600"}
-                fontSize="xl"
-                fontWeight={"bold"}>
-                ₹{" "}
-              </Box>
-              {price.toFixed(2)}
+              ₹ {discountprice}
             </Box>
 
             <Box
               pl={2}
-              fontSize="lg"
+              fontSize="md"
               textDecoration="line-through"
               color={useColorModeValue("gray.500", "white")}>
-              <Box
-                as="span"
-                color={useColorModeValue("gray.500", "white")}
-                fontSize="lg"
-                fontWeight={"bold"}>
-                ₹{" "}
-              </Box>
-              {price.toFixed(2)}
+              ₹ {price}
+            </Box>
+
+            <Box
+              pl={2}
+              fontSize="md"
+              fontWeight={"bolder"}
+              color={useColorModeValue("green.300", "green.200")}>
+              {discountPercentage}
             </Box>
           </Flex>
           <b>
             <Flex>
               Size :{" "}
-              {size.map((el) => (
-                <Text color={"gray.500"} pl={3}>
-                  {el}
-                </Text>
-              ))}
+              <Text color={"gray.500"} pl={3}>
+                {size}
+              </Text>
             </Flex>
           </b>
         </Box>
-        <Center p={8}>
+        <Center p={2}>
           <Button w={"full"} maxW={"md"} colorScheme={"messenger"}>
             <Center>
               <Text>Wiew Product</Text>
