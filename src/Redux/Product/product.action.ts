@@ -40,14 +40,16 @@ const getProductSuccess = (data: ProductDatatype[]): IGetProductSuccess => {
   return { type: types.GET_PRODUCTS_SUCCESS, payload: data };
 };
 
-const updateProductSuccess = (
-  payload: ProductDatatype
-): IUpdateProductSuccess => {
-  return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
-};
+// const updateProductSuccess = (
+//   payload: ProductDatatype
+// ): IUpdateProductSuccess => {
+//   return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
+// };
 
 export const getProducts =
-  (getProductsParam?: { params: { category: string[] } }): any =>
+  (getProductsParam?: {
+    params: { category: string[]; gender?: string[]; order?: string };
+  }): any =>
   async (dispatch: AppDispatch) => {
     dispatch(productRequest());
     try {
@@ -60,16 +62,16 @@ export const getProducts =
     }
   };
 
-export const updateProduct =
-  (id: number, payload: { title: string; price: number }): any =>
-  async (dispatch: AppDispatch) => {
-    dispatch(productRequest());
-    try {
-      let data = await updateProuctAPI(id, payload);
-      if (data) {
-        dispatch(updateProductSuccess(data));
-      }
-    } catch (e) {
-      dispatch(productError());
-    }
-  };
+// export const updateProduct =
+//   (id: number, payload: { title: string; price: number }): any =>
+//   async (dispatch: AppDispatch) => {
+//     dispatch(productRequest());
+//     try {
+//       let data = await updateProuctAPI(id, payload);
+//       if (data) {
+//         dispatch(updateProductSuccess(data));
+//       }
+//     } catch (e) {
+//       dispatch(productError());
+//     }
+//   };
