@@ -27,7 +27,11 @@ const reducer = (
     case types.PRODUCT_ERROR:
       return { ...oldState, loading: false, error: true };
     case types.GET_PRODUCTS_SUCCESS:
-      return { ...oldState, loading: false, data: action.payload };
+      return {
+        ...oldState,
+        loading: false,
+        data: [...oldState.data, ...action.payload],
+      };
     case types.UPDATE_PRODUCT_SUCCESS:
       return {
         ...oldState,

@@ -6,10 +6,10 @@ import SingleCard from "./Componants/SingleCard";
 function App() {
   return (
     <div className="App">
-      {/* <SimpleSidebar>
+      <SimpleSidebar>
         <CartList />
-      </SimpleSidebar> */}
-      <SingleCard />
+      </SimpleSidebar>
+      {/* <SingleCard /> */}
     </div>
   );
 }

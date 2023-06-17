@@ -9,20 +9,43 @@ import {
   VStack,
   Button,
   Heading,
-//   Center,
+
+  //   Center,
   SimpleGrid,
   StackDivider,
   useColorModeValue,
   //   VisuallyHidden,
   List,
   ListItem,
+  Badge,
 } from "@chakra-ui/react";
 // import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
+import React from "react";
+import { ProductDatatype } from "../type";
+import StarRating from "./StarRating";
 // import { useParams } from "react-router-dom";
 
 export default function SingleCard() {
-    //  const { id } = useParams();
+  const [data] = React.useState<ProductDatatype>({
+    type: "male",
+    category: "top_ware",
+    ratings: 4,
+    reviews: "20.7k",
+    image:
+      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg",
+    brand: "Huetrap",
+    title: "Typography Print T-shirt",
+    size: "S",
+    discountprice: 318,
+    price: 1099,
+    discountPercentage: "(71% OFF)",
+    gender: "male",
+    id: 3,
+    isNew: true,
+    assured: true,
+  });
+  //  const { id } = useParams();
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -32,10 +55,8 @@ export default function SingleCard() {
         <Flex>
           <Image
             rounded={"md"}
-            alt={"product image"}
-            src={
-              "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/1996777/2022/11/22/336445a8-fa32-4396-914a-2629b49465d31669112704759RoadsterMenBlackCottonPureCottonT-shirt1.jpg"
-            }
+            alt={data.brand}
+            src={data.image}
             fit={"cover"}
             align={"center"}
             // w={"100%"}
@@ -47,15 +68,9 @@ export default function SingleCard() {
             <Heading
               lineHeight={1.1}
               fontWeight={600}
-              fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}>
-              Automatic Watch
+              fontSize={{ base: "2xl", sm: "4xl", lg: "4xl" }}>
+              {" "}
             </Heading>
-            <Text
-              color={useColorModeValue("gray.900", "gray.400")}
-              fontWeight={300}
-              fontSize={"2xl"}>
-              $350.00 USD
-            </Text>
           </Box>
 
           <Stack
@@ -66,21 +81,136 @@ export default function SingleCard() {
                 borderColor={useColorModeValue("gray.200", "gray.600")}
               />
             }>
-            <VStack spacing={{ base: 4, sm: 6 }}>
+            <VStack
+              spacing={{ base: 4, sm: 6 }}
+              
+              >
+                           <Text
+                color={useColorModeValue("gray.900", "gray.400")}
+                fontWeight={500}
+                fontSize={"4xl"}>
+                {data.brand}</Text>
               <Text
+                align="left"
                 color={useColorModeValue("gray.500", "gray.400")}
                 fontSize={"2xl"}
-                fontWeight={"300"}>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore
+                fontWeight={"500"}>
+                {data.title}
+                {"    "}
+                {data.isNew && (
+                  <Badge
+                    rounded="full"
+                    px="2"
+                    // fontSize="0.8em"
+                    size={"sm"}
+                    colorScheme="blue">
+                    New
+                  </Badge>
+                )}{" "}
               </Text>
-              <Text fontSize={"lg"}>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                maxime modi nam officiis porro, quae, quisquam quos
-                reprehenderit velit? Natus, totam.
+              <Text
+                color={useColorModeValue("gray.900", "gray.400")}
+                fontWeight={500}
+                fontSize={"2xl"}>
+                MRP ₹ {data.discountprice}
+                <Text
+                  color={useColorModeValue("gray.500", "gray.400")}
+                  fontWeight={500}
+                  textDecoration="line-through"
+                  fontSize={"xl"}>
+                  MRP ₹ {data.price}
+                </Text>{" "}
+                <Box
+                  pl={2}
+                  fontSize="md"
+                  fontWeight={"bolder"}
+                  color={useColorModeValue("green.300", "green.200")}>
+                  {data.discountPercentage}
+                </Box>
               </Text>
+
+              <Text>
+                <StarRating
+                  rating={data.ratings}
+                  numReviews={data.reviews}
+                  size={"xl"}
+                />
+              </Text>
+              <Button
+                rounded={"none"}
+                w={"full"}
+                mt={8}
+                size={"xl"}
+                py={"7"}
+                bg={useColorModeValue("gray.900", "gray.50")}
+                color={useColorModeValue("white", "gray.900")}
+                textTransform={"uppercase"}
+                _hover={{
+                  transform: "translateY(2px)",
+                  boxShadow: "lg",
+                }}>
+                Add to cart
+              </Button>
             </VStack>
+            <Box>
+              <Text
+                fontSize={{ base: "16px", lg: "18px" }}
+                color={useColorModeValue("yellow.500", "yellow.300")}
+                fontWeight={"500"}
+                textTransform={"uppercase"}
+                mb={"4"}>
+                Product Details
+              </Text>
+
+              <List spacing={2}>
+                {/* <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Assure Product :{" "}
+                    {data.assured && (
+                      <Tooltip
+                        label="Assured"
+                        bg="white"
+                        placement={"top"}
+                        color={"gray.800"}
+                        fontSize={"1.2em"}>
+                        <chakra.text pl={2} display={"flex"}>
+                          <Icon
+                            as={MdGppGood}
+                            h={7}
+                            w={7}
+                            alignSelf={"center"}
+                          />
+                        </chakra.text>
+                      </Tooltip>
+                    )}
+                  </Text>
+                </ListItem> */}
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Brand Name :{" "}
+                  </Text>{" "}
+                  {data.brand}
+                </ListItem>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Title (name) :
+                  </Text>{" "}
+                  {data.title}
+                </ListItem>
+                <ListItem>
+                  <Text as={"span"} fontWeight={"bold"}>
+                    Made for :{" "}
+                  </Text>
+                  {data.gender === "male" ? (
+                    <span>MEN/BOYS</span>
+                  ) : data.gender === "women" ? (
+                    "WOMEN/GIRLS"
+                  ) : (
+                    "KIDS"
+                  )}
+                </ListItem>
+              </List>
+            </Box>
             <Box>
               <Text
                 fontSize={{ base: "16px", lg: "18px" }}
@@ -104,79 +234,7 @@ export default function SingleCard() {
                 </List>
               </SimpleGrid>
             </Box>
-            <Box>
-              <Text
-                fontSize={{ base: "16px", lg: "18px" }}
-                color={useColorModeValue("yellow.500", "yellow.300")}
-                fontWeight={"500"}
-                textTransform={"uppercase"}
-                mb={"4"}>
-                Product Details
-              </Text>
-
-              <List spacing={2}>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Between lugs:
-                  </Text>{" "}
-                  20 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Bracelet:
-                  </Text>{" "}
-                  leather strap
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case:
-                  </Text>{" "}
-                  Steel
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Case diameter:
-                  </Text>{" "}
-                  42 mm
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Dial color:
-                  </Text>{" "}
-                  Black
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Crystal:
-                  </Text>{" "}
-                  Domed, scratch‑resistant sapphire crystal with anti‑reflective
-                  treatment inside
-                </ListItem>
-                <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Water resistance:
-                  </Text>{" "}
-                  5 bar (50 metres / 167 feet){" "}
-                </ListItem>
-              </List>
-            </Box>
           </Stack>
-
-          <Button
-            rounded={"none"}
-            w={"full"}
-            mt={8}
-            size={"lg"}
-            py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
-            color={useColorModeValue("white", "gray.900")}
-            textTransform={"uppercase"}
-            _hover={{
-              transform: "translateY(2px)",
-              boxShadow: "lg",
-            }}>
-            Add to cart
-          </Button>
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
             <MdLocalShipping />

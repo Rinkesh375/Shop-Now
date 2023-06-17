@@ -1,5 +1,7 @@
 
 export interface ProductDatatype {
+  type:string;
+  category: string;
   ratings: number;
   reviews: string;
   image: string;
