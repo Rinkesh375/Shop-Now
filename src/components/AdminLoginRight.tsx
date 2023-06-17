@@ -3,8 +3,12 @@ import React,{useState,FormEvent} from 'react';
 import {  NavLink, useNavigate } from 'react-router-dom';
 import { AdminInput } from 'src/types/typeForAdmin';
 import { userLoginAuth } from 'src/api/api';
+import { Dispatch } from 'redux';
+import { useDispatch } from 'react-redux';
+import { adminLogin } from 'src/redux/AdminProductReducer/actions';
 
 const AdminLoginRight = () => {
+    const dispatch: Dispatch<any> = useDispatch();
     const [adminInfo,setAdminInfo] = useState<AdminInput>({email:"",password:""})
     const toast = useToast()
     const navigator = useNavigate()
@@ -15,6 +19,8 @@ const AdminLoginRight = () => {
             userLoginAuth(adminInfo.email)
             .then(req=>{
                 if(req.data.id === email && req.data.password === password) {
+                    localStorage.setItem("currentUser",req.data.name)
+                    dispatch(adminLogin(dispatch))
                     toast({ position: "top", title: 'Login Successfully', status: 'success', duration: 3000, isClosable: true, });
                     setTimeout(() => navigator("/admin-products"), 3000);
                 }

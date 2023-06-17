@@ -37,4 +37,5 @@ export interface ProductState {
     isError:boolean;
     isLoading:boolean;
     totalResult:number;
+    isAdminAuth:boolean;
 }

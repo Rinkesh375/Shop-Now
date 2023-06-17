@@ -1,8 +1,8 @@
 import axios from "axios";
 import { Dispatch } from 'redux';
-import { ADMIN_GET_PRODUCT_FAILURE,ADMIN_GET_PRODUCT_SUCCESS, ADMIN_GET_PRODUCT_LOADING, PAGE_UPDATE } from "../actionTypes";
+import { ADMIN_GET_PRODUCT_FAILURE,ADMIN_GET_PRODUCT_SUCCESS, ADMIN_GET_PRODUCT_LOADING, PAGE_UPDATE, ADMIN_AUTH_LOGIN_SUCCESS, ADMIN_AUTH_LOGOUT_SUCCESS } from "../actionTypes";
 import { ProductObj } from "src/constraints/types";
-import exp from "constants";
+
 
 /*
 export const ADMIN_GET_PRODUCT_SUCCESS = "ADMIN_GET_PRODUCT_SUCCESS";
@@ -27,4 +27,13 @@ export const  getAdminProudcts = (dispatch:Dispatch,page:number,productArr:Produ
 
 export const deleteAdminProduct = (id:number)=>{
        return  axios.delete(`http://localhost:8080/products/${id}`)
+}
+
+
+export const adminLogin = (dispatch:Dispatch)=>()=>{
+    dispatch({type:ADMIN_AUTH_LOGIN_SUCCESS})
+}
+
+export const adminLogout = (dispatch:Dispatch)=>()=>{
+    dispatch({type:ADMIN_AUTH_LOGOUT_SUCCESS})
 }

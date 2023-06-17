@@ -2,6 +2,7 @@ import { Badge, GridItem, Card, CardBody, Image, Stack, Heading, Text, Divider, 
 import React from 'react';
 import { ProductObj } from 'src/constraints/types';
 import { Link } from 'react-router-dom';
+import StarRating from './StarRating';
 interface PropType extends ProductObj {
   deleteProduct:(id:number)=>void
 }
@@ -20,9 +21,11 @@ const ProductsCardItem = ({ ratings, reviews, image, brand, title, size, discoun
           
           />
           <Stack mt='6' spacing='3' textAlign="left">
-            {isNew?<Badge h="1rem" rounded="full" w="15%" m="auto" colorScheme='purple'>New</Badge>:<Text h="1rem"></Text>}
+            {isNew  ?<HStack><Badge h="1rem" rounded="full" w="15%" m="auto" colorScheme='purple'>New</Badge><Badge h="1rem" rounded="full" w="26%" m="auto" color='white' bg="black">Assured</Badge></HStack>:isNew?<Badge h="1rem" rounded="full" w="15%" m="auto" colorScheme='purple'>New</Badge>:assured?<Badge h="1rem" rounded="full" w="26%" m="auto" color='white' bg="black">Assured</Badge>:<Text h="1rem"></Text>}
+         
             <Heading size='md'>{title.substring(0,21)}...</Heading>
             <HStack><Heading size='sm'>Brand -</Heading> <Text> {brand}</Text></HStack>
+            <StarRating numReviews ={reviews} rating ={ratings}/>
 
             <Box ><Text as="span" mr="2rem" fontSize="1.3rem" fontWeight="bold">₹ {discountprice}</Text>
               <Text as="span" textDecoration="line-through" >₹ {price} </Text>

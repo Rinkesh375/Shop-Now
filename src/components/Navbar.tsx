@@ -14,12 +14,18 @@ import {
   Center
 } from "@chakra-ui/react";
 import { VscAccount } from "react-icons/vsc";
-import { GrCart } from "react-icons/gr";
-import { HamburgerIcon } from "@chakra-ui/icons"
+
+import { Dispatch } from 'redux';
+import { useDispatch } from 'react-redux';
 // import { HashLink as Link } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { SearchIcon } from "@chakra-ui/icons"
+import { useState } from "react";
+import { useAppSelector } from "src/store";
+import { adminLogout } from "src/redux/AdminProductReducer/actions";
 const Navbar = () => {
+  const { isAdminAuth} = useAppSelector(state => state.adminProductReducer);
+  const dispatch: Dispatch<any> = useDispatch();
   const myStyle = {
     color: "black",
     textDecoration: "none",
@@ -137,9 +143,24 @@ const Navbar = () => {
         "19%",
         "13%",
       ]}>
-        <Link to="/admin-login">
-        <Center fontSize="15px" flexDirection="column" cursor="pointer"><VscAccount size="28px" /><Text marginTop="5px">Login</Text></Center>
-        </Link >
+        {/* <Link to="/admin-login">
+        <Center fontSize="15px" flexDirection="column" cursor="pointer"><VscAccount size="28px" /><Text marginTop="5px">{localStorage.getItem("currentUser")?localStorage.getItem("userName"):"Login"}</Text></Center>
+        </Link > */}
+         <Menu >
+          <MenuButton >
+          <VscAccount size="28px" style={{marginLeft:"1rem"}} />
+          <Text marginTop="5px">{localStorage.getItem("currentUser")?localStorage.getItem("currentUser"):"Login"}</Text>
+          </MenuButton>
+          <MenuList bgColor="#06181C" > 
+            {localStorage.getItem("currentUser")? <MenuItem onClick={()=>{
+              localStorage.removeItem("currentUser");
+              dispatch(adminLogout(dispatch))
+              
+            }}>Logout</MenuItem> :<Link to="/admin-login">Login</Link>}
+          
+          
+          </MenuList>
+        </Menu>
           {/* <Link to="/#"><Center fontSize="15px" flexDirection="column" cursor="pointer"><GrCart size="28px" /><Text marginTop="5px">Cart</Text></Center></Link>     */}
         
       </Flex>

@@ -44,7 +44,7 @@ const AdminAddProducts = () => {
     const toast = useToast()
     const formHandler = (e:FormEvent)=>{
             e.preventDefault();
-            const tempValue = {...newProduct,discountPercentage:`(${Math.ceil(discountprice*100)/price}% OFF)`}
+            const tempValue = {...newProduct,discountPercentage:`(${Math.ceil((discountprice*100)/price)}% OFF)`}
             setNewProduct(tempValue)
             editAdminProduct(id,tempValue)
             .then((req)=>{
@@ -53,7 +53,7 @@ const AdminAddProducts = () => {
             
        
     }
-    const { ratings, reviews, image, brand, title, gender,  discountprice, price,  isNew } = newProduct
+    const { ratings, reviews, image, brand, title, gender,  discountprice, price,  isNew ,assured} = newProduct
     return (
         <>
             <Navbar />
@@ -94,9 +94,23 @@ const AdminAddProducts = () => {
                             </HStack>
                         </RadioGroup>
 
+
+                        <RadioGroup value={assured === true ? "true" : "false"} onChange={(e) => setNewProduct({ ...newProduct, assured: e === "true" ? true : false })}>
+                            <HStack spacing='24px'>
+                                <FormLabel as='legend'>Is Product Assured?</FormLabel>
+                                <Radio value="true">True</Radio>
+                                <Radio value="false">False</Radio>
+
+                            </HStack>
+                        </RadioGroup>
+
+
                         <Button bg="#fa6f1e" color="white" _hover={{color:'white',bg:"#fa6f1e"}} type="submit">Edit Product</Button>
 
                     </Stack>
+
+
+                    
 
 
                 </form>
