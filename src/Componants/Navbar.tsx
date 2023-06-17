@@ -1,5 +1,4 @@
-// import { HamburgerIcon } from "@chakra-ui/icons";
-
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Image,
@@ -15,9 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { VscAccount } from "react-icons/vsc";
 import { GrCart } from "react-icons/gr";
-import { HamburgerIcon } from "@chakra-ui/icons"
-// import { HashLink as Link } from "react-router-hash-link";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import { SearchIcon } from "@chakra-ui/icons"
 const Navbar = () => {
   const myStyle = {
@@ -37,7 +34,7 @@ const Navbar = () => {
       }}
       style={{
         padding: "10px 0px 10px 0px",
-       
+        zIndex: "100",
         display: "flex",
         justifyContent: "space-around",
         width: "100%",
@@ -45,16 +42,13 @@ const Navbar = () => {
         textDecoration: "none",
         top: "0",
         height: "100px",
-        marginBottom:"3rem",
-     
       }}
     >
       <Box
         width="60px"
-        style={{ border: "solid red", }}
         display={{ sm: "block", md: "none", xl: "none", base: "block" }}
       >
-        {/* <Menu >
+        <Menu >
           <MenuButton
             as={IconButton}
             aria-label="Options"
@@ -84,11 +78,11 @@ const Navbar = () => {
               Login
             </MenuItem>
           </MenuList>
-        </Menu> */}
+        </Menu>
       </Box>
       <Box width={["40%", "20%", "10%", "6%"]}>
         <Link to="/#" >
-          <Image src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png" width="100px"></Image>
+          <Image bgColor='white' src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png" width="100px"></Image>
         </Link>
       </Box>
       <Box
@@ -102,20 +96,20 @@ const Navbar = () => {
           "45%",
           "40%", // 62em+
         ]}>
-        <Link style={myStyle} to="/admin-products">
-          All Products
+        <Link style={myStyle} to="/#">
+          Home
         </Link>
-        <Link style={myStyle} to="/admin-add-product">
-          Add New Product
+        <Link style={myStyle} to="/#about-us" smooth>
+          About
         </Link>
-        {/* <Link style={myStyle} to="/#collection">
+        <Link style={myStyle} to="/collection">
           Collection
         </Link>
-        <Link style={myStyle} to="/#new-arrivals" >
+        <Link style={myStyle} to="/#new-arrivals" smooth>
           New Arrivals
-        </Link> */}
+        </Link>
       </Box>
-      <Box display={{ sm: "none", md: "flex", xl: "flex", base: "none" }}
+      <Box display={{ sm: "none", md: "none", xl: "flex", base: "none" }}
         justifyContent="space-between"
         width={[
           "60%", // 0-30em
@@ -125,9 +119,9 @@ const Navbar = () => {
           "19%",
           "25%",
         ]}>
-        <Input position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
+        <Input paddingLeft="15px" borderRadius="7px" position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
         {/* <GrSearch /> */}
-        <SearchIcon w="18px" h="18px" position="absolute" right="295px" top="45px" color="gray" />
+        <SearchIcon w="18px" h="18px" position="absolute" right={["400px","350px","250px","295px"]} top="45px" color="gray" />
       </Box>
       <Flex fontFamily='Poppins,sans-serif' display={{ sm: "none", md: "flex", xl: "flex", base: "none" }} justifyContent="space-around" width={[
         "60%", // 0-30em
@@ -137,10 +131,10 @@ const Navbar = () => {
         "19%",
         "13%",
       ]}>
-        <Link to="/admin-login">
+        <Link to="/#">
         <Center fontSize="15px" flexDirection="column" cursor="pointer"><VscAccount size="28px" /><Text marginTop="5px">Login</Text></Center>
         </Link >
-          {/* <Link to="/#"><Center fontSize="15px" flexDirection="column" cursor="pointer"><GrCart size="28px" /><Text marginTop="5px">Cart</Text></Center></Link>     */}
+          <Link to="/#"><Center fontSize="15px" flexDirection="column" cursor="pointer"><GrCart size="28px" /><Text marginTop="5px">Cart</Text></Center></Link>    
         
       </Flex>
     </Box>

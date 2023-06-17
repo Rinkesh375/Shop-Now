@@ -1,17 +1,18 @@
-import React from 'react';
 
-import './App.css';
+import SimpleSidebar from "./Pages/ProductPage";
 
-import MainRoutes from './AllRoutes/MainRoutes';
-import Footer from './components/Footer';
-
+import CartList from "./Componants/CartList";
+import MainRoutes from "./Pages/MainRoutes";
+import Navbar from "./Componants/Navbar";
+import Home from "./Pages/Home";
 
 function App() {
   return (
     <div className="App">
-        {/* <AdminLoginPage /> */}
-        <MainRoutes/>
-        <Footer/>
+      {/* <SimpleSidebar>
+        <CartList />
+      </SimpleSidebar> */}
+      <Home/>
     </div>
   );
 }

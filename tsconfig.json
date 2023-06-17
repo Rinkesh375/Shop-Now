@@ -1,9 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@chakra-ui/react": ["./node_modules/@chakra-ui/react"]
-    },
     "target": "es5",
     "lib": [
       "dom",
