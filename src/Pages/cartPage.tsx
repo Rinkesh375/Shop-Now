@@ -6,6 +6,7 @@ import { Card, CardHeader, CardBody, CardFooter, Text,Td,Image} from '@chakra-ui
 
 import { useNavigate } from 'react-router-dom';
 import { log } from "console";
+import { DeleteIcon } from "@chakra-ui/icons";
 interface CartItem {
     id: number;
     image:string;
@@ -71,9 +72,10 @@ const CartPage=()=>{
       const handleDelete = (itemId: number) => {
         axios
           .delete(`https://cloudy-red-cheetah.cyclic.app/cart/${itemId}`)
-          .then(response => {
+          .then(res => {
             // Item deleted successfully, update the state or perform any necessary actions
             console.log('Item deleted successfully.');
+            setcartData(res.data)
           })
           .catch(error => {
             // Handle error
@@ -151,7 +153,7 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
                     }
                 </Td>
                 
-                    <Td><Button onClick={()=>handleDelete(e.id)}>Delete</Button></Td>
+                    <Td><Button onClick={()=>handleDelete(e.id)}><DeleteIcon/></Button></Td>
                     
                 </Tr>
                 ))
