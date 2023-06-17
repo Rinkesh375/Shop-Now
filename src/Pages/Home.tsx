@@ -136,9 +136,9 @@ const Home = () => {
       <div style={{ width: "100%" }}>
         <BannerSlider />
       </div>
-      <Box fontFamily='Poppins,sans-serif' id='about-us' fontWeight='bold'  borderRadius="40px" paddingTop="8%" paddingLeft="2%" backgroundSize="100%" height="500px" backgroundImage="https://images.jdmagicbox.com/comp/bangalore/f9/080pxx80.xx80.180411134259.f2f9/catalogue/addict-clothing-co-apparels-bommanahalli-bangalore-readymade-garment-retailers-5i9rrtrghs.jpg?clr=" width="97%" margin="auto" marginBottom="30px">
+      <Box fontFamily='Poppins,sans-serif' id='about-us' fontWeight='bold'  borderRadius="40px" paddingTop="8%" paddingLeft="2%" backgroundSize="100%" height={["250px","400px","450px","500px"]} backgroundImage="https://images.jdmagicbox.com/comp/bangalore/f9/080pxx80.xx80.180411134259.f2f9/catalogue/addict-clothing-co-apparels-bommanahalli-bangalore-readymade-garment-retailers-5i9rrtrghs.jpg?clr=" width="97%" margin="auto" marginBottom="30px">
         <Heading marginBottom="20px">About Us</Heading>
-        <Text fontSize="20px" width="60%">THE SHOP NOW caters to thoughtful shoppers who appreciate unique designs and top quality pieces you just can’t find anywhere else. We are constantly curating fresh new collections and looking for the next big thing our customers will love. Founded in Vienna in 2019, we are proud to be your Online Clothing Shop that you can rely on for our expert service and care.</Text>
+        <Text fontSize={["12px","16px","17px","20px"]} width={["90%","60%","60%","60%"]}>THE SHOP NOW caters to thoughtful shoppers who appreciate unique designs and top quality pieces you just can’t find anywhere else. We are constantly curating fresh new collections and looking for the next big thing our customers will love. Founded in Vienna in 2019, we are proud to be your Online Clothing Shop that you can rely on for our expert service and care.</Text>
       </Box>
       <Box id='new-arrivals' width="92%" marginTop="30px" fontFamily='Poppins,sans-serif' letterSpacing="wide" fontWeight="bold" margin="auto">
         <Heading>2023 New Arrivals</Heading>
@@ -146,7 +146,7 @@ const Home = () => {
           <SimpleGrid margin="auto" columns={[1,2,3,4]} gap="40px">
             {data?.map((ele) => {
               return (
-                <Link to="#">
+                <Link to="#" key={ele.id}>
                   <Box textAlign="left" >
                     <Image borderRadius="30px" width="100%" border="1px solid lightgrey" src={`${ele.image}`}></Image>
                     <Text fontSize="15px" marginTop="10px">{ele.name}</Text>

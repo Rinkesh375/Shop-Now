@@ -75,11 +75,11 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Box w="full" maxW="300px" overflow="hidden" margin="10px">
+    <Box display={{sm: "none", md: "block", xl: "block",base:"none"}} w="full" maxW="300px" overflow="hidden" margin="10px">
       <Box border="1px solid lightgrey" borderRadius="25px">
-        <Image borderRadius="25px" width="100%" height="300px" src={`${product.image}`}></Image>
+        <Image borderRadius="25px" width="100%" height={["100px","100px","300px","300px"]} src={`${product.image}`}></Image>
       </Box>
-      <Box p="4">
+      <Box >
         <Text fontSize="15px" mb="2" textAlign="left">{product.name}</Text>
         <Text textAlign="left" fontWeight="bold" color="#FA6F1E">${product.price.toFixed(2)}</Text>
       </Box>
@@ -104,7 +104,7 @@ const ProductSlider: React.FC = () => {
   const lastIndex = currentSlide + 5 >= products.length ? products.length - 1 : currentSlide + 5;
 
   return (
-    <Box position="relative" w="full" width="92%" mx="auto" marginTop="30px">
+    <Box display={{sm: "none", md: "block", xl: "block",base:"none"}} position="relative" w="full" width="92%" mx="auto" marginTop="30px">
       <Heading paddingLeft="6px" marginBottom="15px">Recently Viewed</Heading>
       <Flex w="full" overflow="hidden">
         {products.slice(firstIndex, lastIndex + 1).map((product, index) => (
@@ -117,7 +117,7 @@ const ProductSlider: React.FC = () => {
           aria-label="Previous Slide"
           icon={<ChevronLeftIcon boxSize="40px" backgroundColor="white" border=" thin solid #ddd" />}
           position="absolute"
-          top="40%"
+          top="42%"
           left="13px"
           transform="translateY(-50%)"
           onClick={handlePrevSlide}
@@ -126,7 +126,7 @@ const ProductSlider: React.FC = () => {
           aria-label="Next Slide"
           icon={<ChevronRightIcon boxSize="40px" border=" thin solid #ddd" />}
           position="absolute"
-          top="40%"
+          top="42%"
           right="15px"
           transform="translateY(-50%)"
           onClick={handleNextSlide}

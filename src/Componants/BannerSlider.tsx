@@ -38,7 +38,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <Box width="100%" overflow="hidden" key={product.id}>
+    <Box width="100%" overflow="hidden">
       <Box width="100%">
         <Image borderRadius="30px" src={`${product.image}`} width="100%"/>
       </Box>
@@ -73,11 +73,11 @@ const BannerSlider: React.FC = () => {
     <Box position="relative" w="full" maxW="97%" mx="auto">
       <Flex w="full" overflow="hidden">
         {products.slice(firstIndex, lastIndex + 1).map((product, index) => (
-          <ProductCard product={product} />
+          <ProductCard product={product} key={product.id}/>
         ))}
       </Flex>
 
-      <Flex justify="space-between" mt="4">
+      <Flex justify="space-between" mt="4" width="10%">
         {currentSlide === 0 ? null : (
           <IconButton
             aria-label="Previous Slide"
@@ -87,6 +87,7 @@ const BannerSlider: React.FC = () => {
             left="13px"
             transform="translateY(-50%)"
             onClick={handlePrevSlide}
+            width={["30px","30px","30px","30px"]}
           />
         )}
         {currentSlide === products.length - 6 ? null : (
@@ -98,6 +99,7 @@ const BannerSlider: React.FC = () => {
             right="13px"
             transform="translateY(-50%)"
             onClick={handleNextSlide}
+            width={["25px","25px","30px","30px"]}
           />
         )}
       </Flex>

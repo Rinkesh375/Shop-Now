@@ -46,7 +46,6 @@ const Navbar = () => {
     >
       <Box
         width="60px"
-        style={{ border: "solid red", }}
         display={{ sm: "block", md: "none", xl: "none", base: "block" }}
       >
         <Menu >
@@ -110,7 +109,7 @@ const Navbar = () => {
           New Arrivals
         </Link>
       </Box>
-      <Box display={{ sm: "none", md: "flex", xl: "flex", base: "none" }}
+      <Box display={{ sm: "none", md: "none", xl: "flex", base: "none" }}
         justifyContent="space-between"
         width={[
           "60%", // 0-30em
@@ -122,7 +121,7 @@ const Navbar = () => {
         ]}>
         <Input paddingLeft="15px" borderRadius="7px" position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
         {/* <GrSearch /> */}
-        <SearchIcon w="18px" h="18px" position="absolute" right="295px" top="45px" color="gray" />
+        <SearchIcon w="18px" h="18px" position="absolute" right={["400px","350px","250px","295px"]} top="45px" color="gray" />
       </Box>
       <Flex fontFamily='Poppins,sans-serif' display={{ sm: "none", md: "flex", xl: "flex", base: "none" }} justifyContent="space-around" width={[
         "60%", // 0-30em
