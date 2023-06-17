@@ -1,6 +1,0 @@
-
-
-export const Paymentpage=()=>{
-    return <>
-    </>
-}

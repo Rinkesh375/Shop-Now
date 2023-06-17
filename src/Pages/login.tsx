@@ -1,66 +1,70 @@
-import {
-    Flex,
-    Box,
-    FormControl,
-    FormLabel,
-    Input,
-    Checkbox,
-    Stack,
-    Link,
-    Button,
-    Heading,
-    Text,
-    useColorModeValue,
-  } from '@chakra-ui/react';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import { AuthContext } from '../context/Authcontext';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebaseauth';
+import { error } from 'console';
+import { Box, Heading, Input, Button, FormLabel } from '@chakra-ui/react';
+
+
+interface LoginForm {
+  email: string;
+  password: string;
+}
+
+const Login = () => {
+  const { login } = useContext(AuthContext);
+  const [loginForm, setLoginForm] = useState<LoginForm>({
+    email: '',
+    password: '',
+  });
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setLoginForm((prevForm) => ({ ...prevForm, [name]: value }));
+  };
+
+  const handleSubmit =  (event: React.FormEvent) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(auth,loginForm.email,loginForm.password)
+    .then((res)=>{
+      console.log(res)
+      
+
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+
   
-  export default function Login() {
-    return (
-      <Flex
-        minH={'100vh'}
-        align={'center'}
-        justify={'center'}
-        bg={useColorModeValue('gray.50', 'gray.800')}>
-        <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
-          <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Sign in to your account</Heading>
-            <Text fontSize={'lg'} color={'gray.600'}>
-              to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
-            </Text>
-          </Stack>
-          <Box
-            rounded={'lg'}
-            bg={useColorModeValue('white', 'gray.700')}
-            boxShadow={'lg'}
-            p={8}>
-            <Stack spacing={4}>
-              <FormControl id="email">
-                <FormLabel>Email address</FormLabel>
-                <Input type="email" />
-              </FormControl>
-              <FormControl id="password">
-                <FormLabel>Password</FormLabel>
-                <Input type="password" />
-              </FormControl>
-              <Stack spacing={10}>
-                <Stack
-                  direction={{ base: 'column', sm: 'row' }}
-                  align={'start'}
-                  justify={'space-between'}>
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={'blue.400'}>Forgot password?</Link>
-                </Stack>
-                <Button
-                  bg={'blue.400'}
-                  color={'white'}
-                  _hover={{
-                    bg: 'blue.500',
-                  }}>
-                  Sign in
-                </Button>
-              </Stack>
-            </Stack>
-          </Box>
-        </Stack>
-      </Flex>
-    );
-  }
+  };
+
+  return (
+    <Box p={4} maxWidth="400px" mx="auto" borderColor="gray.200" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px">
+    <Heading as="h1" mb={4} color={"#010008"}>Login</Heading>
+    <form onSubmit={handleSubmit}>
+    <FormLabel>Email ID</FormLabel>
+      <Input
+        type="text"
+        name="email"
+        value={loginForm.email}
+        onChange={handleInputChange}
+        placeholder="Email"
+        mb={4}
+      />
+         <FormLabel >Password</FormLabel>
+      <Input
+        type="password"
+        name="password"
+        value={loginForm.password}
+        onChange={handleInputChange}
+        placeholder="Password"
+        mb={4}
+      />
+      <Button type="submit" bg="#FA6F13" color={"white"}>Login</Button>
+    </form>
+  </Box>
+  );
+};
+
+export default Login;

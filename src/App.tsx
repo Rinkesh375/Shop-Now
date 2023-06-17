@@ -5,6 +5,10 @@ import CartList from "./Componants/CartList";
 import Login from "./Pages/login";
 import Signup from "./Pages/signup";
 import CartPage from "./Pages/cartPage";
+import CheckoutPage from "./Pages/Checkout1";
+import PaymentPage from "./Pages/Paymentpage";
+import SignUpPage from "./Pages/signup";
+import SignUp from "./Pages/signup";
 
 function App() {
   return (
@@ -13,9 +17,15 @@ function App() {
         <CartList />
         
       </SimpleSidebar> */}
-      {/* <Login/>
-        <Signup/> */}
-        <CartPage/>
+      {/* <Login/> */}
+        {/* <Signup/> */}
+       <CartPage/>
+        {/* <CheckoutPage/> */}
+         {/* <PaymentPage/> */}
+        {/* <CheckoutPage/> */}
+        {/* <SignUpPage/> */}
+        {/* <SignUp/>
+        <Login/> */}
     </div>
   );
 }
