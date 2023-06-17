@@ -1,4 +1,3 @@
-
 import SimpleSidebar from "./Pages/ProductPage";
 
 import CartList from "./Componants/CartList";
@@ -12,7 +11,8 @@ function App() {
       {/* <SimpleSidebar>
         <CartList />
       </SimpleSidebar> */}
-      <Home/>
+      {/* <Home/> */}
+      <MainRoutes />
     </div>
   );
 }

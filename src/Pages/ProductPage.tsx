@@ -27,6 +27,8 @@ import { useSearchParams } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import Navbar from "../Componants/Navbar";
+import Footer from "../Componants/Footer";
 
 export default function SimpleSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -58,43 +60,47 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
   }, [category, gender, order]);
 
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
-      <SidebarContent
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-        handleFilterChange={handleFilterChange}
-        category={category}
-        gender={gender}
-        handleGender={handleGender}
-        order={order}
-        handleOrder={handleOrder}
-      />
-      <Drawer
-        autoFocus={false}
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        returnFocusOnClose={false}
-        onOverlayClick={onClose}
-        size="full">
-        <DrawerContent>
-          <SidebarContent
-            onClose={onClose}
-            handleFilterChange={handleFilterChange}
-            category={category}
-            gender={gender}
-            handleGender={handleGender}
-            order={order}
-            handleOrder={handleOrder}
-          />
-        </DrawerContent>
-      </Drawer>
-      {/* mobilenav */}
-      <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p="4">
-        {children}
+    <>
+      <Navbar />
+      <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+        <SidebarContent
+          onClose={() => onClose}
+          display={{ base: "none", md: "block" }}
+          handleFilterChange={handleFilterChange}
+          category={category}
+          gender={gender}
+          handleGender={handleGender}
+          order={order}
+          handleOrder={handleOrder}
+        />
+        <Drawer
+          autoFocus={false}
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          returnFocusOnClose={false}
+          onOverlayClick={onClose}
+          size="full">
+          <DrawerContent>
+            <SidebarContent
+              onClose={onClose}
+              handleFilterChange={handleFilterChange}
+              category={category}
+              gender={gender}
+              handleGender={handleGender}
+              order={order}
+              handleOrder={handleOrder}
+            />
+          </DrawerContent>
+        </Drawer>
+        {/* mobilenav */}
+        <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
+        <Box ml={{ base: 0, md: 60 }} p="4">
+          {children}
+        </Box>
       </Box>
-    </Box>
+      <Footer />
+    </>
   );
 }
 

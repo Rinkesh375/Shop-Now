@@ -8,6 +8,7 @@ import { getProducts } from "../Redux/Product/product.action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Footer from "./Footer";
 
 function CartList() {
   const { loading, error, data } = useAppSelector(
@@ -67,6 +68,7 @@ function CartList() {
         </SimpleGrid>
       </InfiniteScroll>
       {/* )} */}
+      {/* <Footer/> */}
     </>
   );
 }

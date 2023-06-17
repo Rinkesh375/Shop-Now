@@ -23,7 +23,7 @@ const Navbar = () => {
   };
   return (
     <Box
-      fontFamily='Poppins,sans-serif'
+      fontFamily="Poppins,sans-serif"
       letterSpacing="wide"
       fontWeight="bold"
       height={{
@@ -42,23 +42,20 @@ const Navbar = () => {
         textDecoration: "none",
         top: "0",
         height: "100px",
-      }}
-    >
+      }}>
       <Box
         width="60px"
-        display={{ sm: "block", md: "none", xl: "none", base: "block" }}
-      >
-        <Menu >
+        display={{ sm: "block", md: "none", xl: "none", base: "block" }}>
+        <Menu>
           <MenuButton
             as={IconButton}
             aria-label="Options"
             icon={<HamburgerIcon />}
             variant="outline"
-            color="#2FB0DA"
-          >
+            color="#2FB0DA">
             Open menu
           </MenuButton>
-          <MenuList bgColor="#06181C" >
+          <MenuList bgColor="#06181C">
             <MenuItem as="a" href="/">
               Home
             </MenuItem>
@@ -68,8 +65,8 @@ const Navbar = () => {
             <MenuItem as="a" href="#about-us">
               About
             </MenuItem>
-            <MenuItem as="a" href="collection">
-              Collection
+            <MenuItem as="a" href="products">
+              products
             </MenuItem>
             <MenuItem as="a" href="cart">
               Cart
@@ -81,8 +78,11 @@ const Navbar = () => {
         </Menu>
       </Box>
       <Box width={["40%", "20%", "10%", "6%"]}>
-        <Link to="/#" >
-          <Image bgColor='white' src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png" width="100px"></Image>
+        <Link to="/#">
+          <Image
+            bgColor="white"
+            src="https://i.ibb.co/G5qpJkc/construct-week-project-image.png"
+            width="100px"></Image>
         </Link>
       </Box>
       <Box
@@ -102,14 +102,15 @@ const Navbar = () => {
         <Link style={myStyle} to="/#about-us" smooth>
           About
         </Link>
-        <Link style={myStyle} to="/collection">
-          Collection
+        <Link style={myStyle} to="/products">
+          products
         </Link>
         <Link style={myStyle} to="/#new-arrivals" smooth>
           New Arrivals
         </Link>
       </Box>
-      <Box display={{ sm: "none", md: "none", xl: "flex", base: "none" }}
+      <Box
+        display={{ sm: "none", md: "none", xl: "flex", base: "none" }}
         justifyContent="space-between"
         width={[
           "60%", // 0-30em
@@ -119,23 +120,49 @@ const Navbar = () => {
           "19%",
           "25%",
         ]}>
-        <Input paddingLeft="15px" borderRadius="7px" position="relative" variant='flushed' placeholder='search' borderBottom="1px" borderColor='gray' />
+        <Input
+          paddingLeft="15px"
+          borderRadius="7px"
+          position="relative"
+          variant="flushed"
+          placeholder="search"
+          borderBottom="1px"
+          borderColor="gray"
+        />
         {/* <GrSearch /> */}
-        <SearchIcon w="18px" h="18px" position="absolute" right={["400px","350px","250px","295px"]} top="45px" color="gray" />
+        <SearchIcon
+          w="18px"
+          h="18px"
+          position="absolute"
+          right={["400px", "350px", "250px", "295px"]}
+          top="45px"
+          color="gray"
+        />
       </Box>
-      <Flex fontFamily='Poppins,sans-serif' display={{ sm: "none", md: "flex", xl: "flex", base: "none" }} justifyContent="space-around" width={[
-        "60%", // 0-30em
-        "45%", // 30em-48em
-        "30%", // 48em-62em
-        "26%", // 62em+
-        "19%",
-        "13%",
-      ]}>
+      <Flex
+        fontFamily="Poppins,sans-serif"
+        display={{ sm: "none", md: "flex", xl: "flex", base: "none" }}
+        justifyContent="space-around"
+        width={[
+          "60%", // 0-30em
+          "45%", // 30em-48em
+          "30%", // 48em-62em
+          "26%", // 62em+
+          "19%",
+          "13%",
+        ]}>
         <Link to="/#">
-        <Center fontSize="15px" flexDirection="column" cursor="pointer"><VscAccount size="28px" /><Text marginTop="5px">Login</Text></Center>
-        </Link >
-          <Link to="/#"><Center fontSize="15px" flexDirection="column" cursor="pointer"><GrCart size="28px" /><Text marginTop="5px">Cart</Text></Center></Link>    
-        
+          <Center fontSize="15px" flexDirection="column" cursor="pointer">
+            <VscAccount size="28px" />
+            <Text marginTop="5px">Login</Text>
+          </Center>
+        </Link>
+        <Link to="/#">
+          <Center fontSize="15px" flexDirection="column" cursor="pointer">
+            <GrCart size="28px" />
+            <Text marginTop="5px">Cart</Text>
+          </Center>
+        </Link>
       </Flex>
     </Box>
   );
