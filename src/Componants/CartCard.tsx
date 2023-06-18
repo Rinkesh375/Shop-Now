@@ -15,6 +15,7 @@ import {
 import { MdGppGood } from "react-icons/md";
 import StarRating from "./StarRating";
 import { ProductDatatype } from "../type";
+import { Link } from "react-router-dom";
 
 const CartCard = ({
   ratings,
@@ -128,13 +129,15 @@ const CartCard = ({
             </Flex>
           </b>
         </Box>
+          <Link to={`/products/${id}`}>
         <Center p={2}>
-          <Button w={"full"} maxW={"md"} colorScheme={"messenger"}>
-            <Center>
-              <Text>Wiew Product</Text>
-            </Center>
-          </Button>
+            <Button w={"full"} maxW={"md"} colorScheme={"messenger"}>
+              <Center>
+                <Text>Wiew Product</Text>
+              </Center>
+            </Button>
         </Center>
+          </Link>
       </Box>
     </Flex>
   );

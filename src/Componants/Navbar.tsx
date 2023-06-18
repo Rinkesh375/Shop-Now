@@ -10,12 +10,12 @@ import {
   Input,
   Text,
   Flex,
-  Center
+  Center,
 } from "@chakra-ui/react";
 import { VscAccount } from "react-icons/vsc";
 import { GrCart } from "react-icons/gr";
 import { HashLink as Link } from "react-router-hash-link";
-import { SearchIcon } from "@chakra-ui/icons"
+import { SearchIcon } from "@chakra-ui/icons";
 const Navbar = () => {
   const myStyle = {
     color: "black",
@@ -69,7 +69,6 @@ const Navbar = () => {
               products
             </MenuItem>
             <MenuItem as="a" href="/cart">
-              
               Cart
             </MenuItem>
             <MenuItem as="a" href="/login">
@@ -152,13 +151,13 @@ const Navbar = () => {
           "19%",
           "13%",
         ]}>
-        <Link to="/#">
+        <Link to="/login">
           <Center fontSize="15px" flexDirection="column" cursor="pointer">
             <VscAccount size="28px" />
             <Text marginTop="5px">Login</Text>
           </Center>
         </Link>
-        <Link to="/#">
+        <Link to="/cart">
           <Center fontSize="15px" flexDirection="column" cursor="pointer">
             <GrCart size="28px" />
             <Text marginTop="5px">Cart</Text>

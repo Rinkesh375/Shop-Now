@@ -19,35 +19,57 @@ import {
   ListItem,
   Badge,
 } from "@chakra-ui/react";
-// import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
 import React from "react";
 import { ProductDatatype } from "../type";
 import StarRating from "./StarRating";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-// import { useParams } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+import { postCartData, singleuser } from "../Redux/Product/prooduct.api";
 
 export default function SingleCard() {
-  const [data] = React.useState<ProductDatatype>({
-    type: "male",
-    category: "top_ware",
-    ratings: 4,
-    reviews: "20.7k",
-    image:
-      "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg",
-    brand: "Huetrap",
-    title: "Typography Print T-shirt",
-    size: "S",
-    discountprice: 318,
-    price: 1099,
-    discountPercentage: "(71% OFF)",
-    gender: "male",
-    id: 3,
+  // const { data } = useAppSelector((store: any) => store.ProuductReducer);
+
+  const initialProduct: ProductDatatype = {
+    type: "",
+    category: "",
+    ratings: 0,
+    reviews: "",
+    image: "",
+    brand: "",
+    title: "",
+    size: "",
+    discountprice: 0,
+    price: 0,
+    discountPercentage: "",
+    id: 1,
     isNew: true,
     assured: true,
-  });
-  //  const { id } = useParams();
+    gender: ",",
+  };
+
+  const [addcart, setAddcart] = React.useState<boolean>(false);
+  const [datas, setData] = React.useState<ProductDatatype>(initialProduct);
+  console.log("omkar", datas);
+
+  const handleCart = () => {
+    if (addcart === false) {
+      postCartData(datas);
+    }
+    setAddcart(true);
+  };
+  const { id } = useParams<string>();
+  console.log(id);
+
+  React.useEffect(() => {
+    singleuser(id).then((res) => {
+      setData(res);
+      // console.log(res);
+    });
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -59,8 +81,8 @@ export default function SingleCard() {
           <Flex>
             <Image
               rounded={"md"}
-              alt={data.brand}
-              src={data.image}
+              alt={datas.brand}
+              src={datas.image}
               fit={"cover"}
               align={"center"}
               // w={"100%"}
@@ -90,16 +112,16 @@ export default function SingleCard() {
                   color={useColorModeValue("gray.900", "gray.400")}
                   fontWeight={500}
                   fontSize={"4xl"}>
-                  {data.brand}
+                  {datas.brand}
                 </Text>
                 <Text
                   align="left"
                   color={useColorModeValue("gray.500", "gray.400")}
                   fontSize={"2xl"}
                   fontWeight={"500"}>
-                  {data.title}
+                  {datas.title}
                   {"    "}
-                  {data.isNew && (
+                  {datas.isNew && (
                     <Badge
                       rounded="full"
                       px="2"
@@ -114,31 +136,32 @@ export default function SingleCard() {
                   color={useColorModeValue("gray.900", "gray.400")}
                   fontWeight={500}
                   fontSize={"2xl"}>
-                  MRP ₹ {data.discountprice}
+                  MRP ₹ {datas.discountprice}
                   <Text
                     color={useColorModeValue("gray.500", "gray.400")}
                     fontWeight={500}
                     textDecoration="line-through"
                     fontSize={"xl"}>
-                    MRP ₹ {data.price}
+                    MRP ₹ {datas.price}
                   </Text>{" "}
                   <Box
                     pl={2}
                     fontSize="md"
                     fontWeight={"bolder"}
                     color={useColorModeValue("green.300", "green.200")}>
-                    {data.discountPercentage}
+                    {datas.discountPercentage}
                   </Box>
                 </Text>
 
                 <Text>
                   <StarRating
-                    rating={data.ratings}
-                    numReviews={data.reviews}
+                    rating={datas.ratings}
+                    numReviews={datas.reviews}
                     size={"xl"}
                   />
                 </Text>
                 <Button
+                  onClick={handleCart}
                   rounded={"none"}
                   w={"full"}
                   mt={8}
@@ -151,7 +174,7 @@ export default function SingleCard() {
                     transform: "translateY(2px)",
                     boxShadow: "lg",
                   }}>
-                  Add to cart
+                  {addcart === true ? "added in the cart" : "Add to cart"}
                 </Button>
               </VStack>
               <Box>
@@ -165,47 +188,25 @@ export default function SingleCard() {
                 </Text>
 
                 <List spacing={2}>
-                  {/* <ListItem>
-                  <Text as={"span"} fontWeight={"bold"}>
-                    Assure Product :{" "}
-                    {data.assured && (
-                      <Tooltip
-                        label="Assured"
-                        bg="white"
-                        placement={"top"}
-                        color={"gray.800"}
-                        fontSize={"1.2em"}>
-                        <chakra.text pl={2} display={"flex"}>
-                          <Icon
-                            as={MdGppGood}
-                            h={7}
-                            w={7}
-                            alignSelf={"center"}
-                          />
-                        </chakra.text>
-                      </Tooltip>
-                    )}
-                  </Text>
-                </ListItem> */}
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
                       Brand Name :{" "}
                     </Text>{" "}
-                    {data.brand}
+                    {datas.brand}
                   </ListItem>
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
                       Title (name) :
                     </Text>{" "}
-                    {data.title}
+                    {datas.title}
                   </ListItem>
                   <ListItem>
                     <Text as={"span"} fontWeight={"bold"}>
                       Made for :{" "}
                     </Text>
-                    {data.gender === "male" ? (
+                    {datas.gender === "male" ? (
                       <span>MEN/BOYS</span>
-                    ) : data.gender === "women" ? (
+                    ) : datas.gender === "women" ? (
                       "WOMEN/GIRLS"
                     ) : (
                       "KIDS"
