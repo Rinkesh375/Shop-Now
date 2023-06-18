@@ -58,7 +58,7 @@ function CartList() {
         dataLength={data.length}
         next={fetchData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}>
+        loader={<ProductError />}>
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
           spacing={5}>

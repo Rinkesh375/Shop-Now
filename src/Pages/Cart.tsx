@@ -2,6 +2,7 @@ import React from 'react'
 import SimpleSidebar from './ProductPage';
 import CartList from '../Componants/CartList';
 import Footer from '../Componants/Footer';
+import Navbar from '../Componants/Navbar';
 
 
 const Cart = () => {
@@ -9,9 +10,10 @@ const Cart = () => {
     <>
       
       <SimpleSidebar>
+        <Navbar/>
         <CartList />
+      <Footer/>
       </SimpleSidebar>
-      {/* <Footer/> */}
      
     </>
   );
