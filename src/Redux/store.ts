@@ -2,9 +2,9 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { legacy_createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { reducer as ProuductReducer } from "./Product/product.reducer";
-
+import { adminProductReducer } from "./AdminProductReducer/adminProductReducer";
 const rootReducer = combineReducers({
-  ProuductReducer,
+  ProuductReducer,adminProductReducer
 });
 
 let middleware = [thunk];

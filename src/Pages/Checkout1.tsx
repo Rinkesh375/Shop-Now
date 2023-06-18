@@ -12,6 +12,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import PaymentPage from "./Paymentpage";
+import Navbar from "../Componants/Navbar";
+import Footer from "../Componants/Footer";
 
 interface CheckoutItem {
   name: string;
@@ -26,10 +28,11 @@ const CheckoutPage = () => {
   const [phone, setPhone] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("");
 
-  //const bgColor = useColorModeValue("gray.100", "gray.700");
+
   const textColor = useColorModeValue("gray.700", "gray.200");
 
-  return (
+  return (<>
+    <Navbar/>
     <Flex
       flexDirection={{ base: "column", md: "row" }}
       justify="center"
@@ -47,10 +50,11 @@ const CheckoutPage = () => {
           Checkout
         </Heading>
         <Stack spacing={4} mb={8}>
-          <FormControl id="name">
+          <FormControl id="name" >
             <FormLabel color={textColor}>Name</FormLabel>
             <Input
               type="text"
+              placeholder="name"
               value={name}
               onChange={(e:any) => setName(e.target.value)}
             />
@@ -59,6 +63,7 @@ const CheckoutPage = () => {
             <FormLabel color={textColor}>Email</FormLabel>
             <Input
               type="email"
+              placeholder="Email id"
               value={email}
               onChange={(e:any) => setEmail(e.target.value)}
             />
@@ -67,6 +72,7 @@ const CheckoutPage = () => {
             <FormLabel color={textColor}>Address</FormLabel>
             <Input
               type="text"
+              placeholder="Address"
               value={address}
               onChange={(e:any) => setAddress(e.target.value)}
             />
@@ -74,19 +80,15 @@ const CheckoutPage = () => {
           <FormControl id="phone">
             <FormLabel color={textColor}>Phone</FormLabel>
             <Input
-              type="tel"
+              type="number"
+              placeholder="Phone No"
+
               value={phone}
               onChange={(e:any) => setPhone(e.target.value)}
             />
           </FormControl>
-          <FormControl id="paymentMethod">
-            <FormLabel color={textColor}>Payment Method</FormLabel>
-            <Input
-              type="text"
-              value={paymentMethod}
-              onChange={(e:any) => setPaymentMethod(e.target.value)}
-            />
-          </FormControl>
+
+        
         </Stack>
         
       </Box>
@@ -94,6 +96,8 @@ const CheckoutPage = () => {
         <PaymentPage />
       </Box>
     </Flex>
+    <Footer/>
+    </>
   );
 };
 
