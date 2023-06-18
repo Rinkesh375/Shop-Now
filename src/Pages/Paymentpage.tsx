@@ -7,8 +7,10 @@ import {
   Input,
   Button,
   extendTheme,
-  ChakraProvider,Image
+  ChakraProvider,Image, RadioGroup, Stack, Radio, useToast
 } from '@chakra-ui/react';
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom';
 
 const theme = extendTheme({
   colors: {
@@ -25,7 +27,7 @@ function PaymentPage() {
   const [cardNumber, setCardNumber] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
-
+  const toast = useToast()
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCardNumber(e.target.value);
   };
@@ -40,29 +42,50 @@ function PaymentPage() {
 
   const handlePaymentSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log("success")
+    if(cardNumber&&expiryDate &&cvv){
+    setTimeout(()=>{
+      alert("Order Placed Successfull")
+      navigate("/")
 
-    // Perform payment processing logic here
-    // You can send the payment details to a server, integrate with a payment gateway, etc.
-
-    // Reset the form after payment processing is complete
+    },1000)
+    
     setCardNumber('');
     setExpiryDate('');
     setCvv('');
-  };
-  const handlePay=(e:React.MouseEvent<HTMLButtonElement>)=>{
-    e.preventDefault();
-    setTimeout(()=>{
-      alert("placed succssfully")
-
-    },1000)
+  }else{
+    alert("All the field mandatory")
   }
+  };
+  
+  
+  const navigate=useNavigate()
 
+  const handleGoBack=()=>{
+    navigate(-1)
+  }
+  const [value, setValue] = React.useState('1')
+ 
   return (
     <ChakraProvider theme={theme}>
       <Box>
-        <Image src="https://devathon.com/wp-content/uploads/2020/02/Top-10-Payment-Gateways-Devathon.png" alt="" w={"200px"}/>
-        <Heading as="h2" size="md" color="secondary.900">Payment Information</Heading>
+        <Image src="https://devathon.com/wp-content/uploads/2020/02/Top-10-Payment-Gateways-Devathon.png" alt="" w={"180px"}/>
+        <Heading as="h2" size="md" color="secondary.900">Payment Mode</Heading>
+        <br />
+        <Box>
+          <RadioGroup onChange={setValue} value={value}>
+      <Stack direction='row'>
+        <Radio value='1'>Cash on Delivery</Radio>
+        <Radio value='2'>Card</Radio>
+        
+      </Stack>
+    </RadioGroup>
+
+
+          </Box>
+          <br />
         <form onSubmit={handlePaymentSubmit}>
+          
           <FormControl>
             <FormLabel htmlFor="cardNumber">Card Number:</FormLabel>
             <Input
@@ -73,12 +96,13 @@ function PaymentPage() {
               color="secondary.900"
               bg="white"
             />
+            
           </FormControl>
 
           <FormControl>
             <FormLabel htmlFor="expiryDate">Expiry Date:</FormLabel>
             <Input
-              type="text"
+              type="date"
               id="expiryDate"
               value={expiryDate}
               onChange={handleExpiryDateChange}
@@ -98,9 +122,14 @@ function PaymentPage() {
               bg="white"
             />
           </FormControl>
+          <br />
+        
 
-          <Button type="submit" colorScheme="primary" onClick={handlePay}>Pay</Button>
+          <Button type="submit" colorScheme="primary"  w={"200px"}>Pay</Button>
         </form>
+        <Box w="100px">
+        <button onClick={handleGoBack} > <br /><ArrowBackIcon marginRight={"10px"}/>Back</button>
+        </Box>
       </Box>
     </ChakraProvider>
   );

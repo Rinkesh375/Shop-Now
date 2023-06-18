@@ -13,13 +13,17 @@ import {
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseauth';
 
+import { useNavigate } from 'react-router-dom';
+import { ArrowBackIcon } from '@chakra-ui/icons';
+
 interface RegisterForm {
   email: string;
   password: string;
 }
 
 const SignUp = () => {
-  const { login } = useContext(AuthContext);
+  const navigate=useNavigate()
+  const { isAuthenticated } = useContext(AuthContext);
   const [registerForm, setRegisterForm] = useState<RegisterForm>({
     email: '',
     password: '',
@@ -36,6 +40,7 @@ const SignUp = () => {
     createUserWithEmailAndPassword(auth,registerForm.email,registerForm.password)
     .then((res)=>{
       console.log(res)
+      navigate("/login")
     })
     .catch((error)=>{
       console.log(error)
@@ -43,9 +48,13 @@ const SignUp = () => {
 
  
   };
+ 
 
+const handleGoBack=()=>{
+  navigate(-1)
+}
   return (
-    <Box maxWidth="sm" mx="auto" p={4}  borderColor="gray.200" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px">
+    <Box maxWidth="sm" mx="auto" p={4}  borderColor="gray.200" boxShadow="rgba(50, 50, 93, 0.25) 0px 2px 5px -1px" marginTop={"5%"}>
       <Heading mb={4} color={"#010008"}>Register</Heading>
       <form onSubmit={handleSubmit} >
         <Stack spacing={3}>
@@ -78,6 +87,9 @@ const SignUp = () => {
           SignUp
           </Button>
         </Stack>
+        <Box w="100px">
+        <button onClick={handleGoBack} > <br /><ArrowBackIcon marginRight={"10px"}/>Back</button>
+        </Box>
       </form>
       
     </Box>

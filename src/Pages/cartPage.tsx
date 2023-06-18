@@ -5,8 +5,7 @@ import { useEffect, useState } from "react"
 import { Card, CardHeader, CardBody, CardFooter, Text,Td,Image} from '@chakra-ui/react'
 
 import { useNavigate } from 'react-router-dom';
-import { log } from "console";
-import { DeleteIcon } from "@chakra-ui/icons";
+
 import Footer from "../Componants/Footer";
 import Navbar from "../Componants/Navbar";
 interface CartItem {
@@ -71,20 +70,20 @@ const CartPage=()=>{
           setQuantity(newQuantity);
         }
       };
-      const handleDelete = (itemId: number) => {
-        axios
-          .delete(`https://cloudy-red-cheetah.cyclic.app/cart/${itemId}`)
-          .then(res => {
-            // Item deleted successfully, update the state or perform any necessary actions
-            console.log('Item deleted successfully.');
-            setcartData(res.data)
-          })
-          .catch(error => {
-            // Handle error
-            console.error('Error deleting item:', error);
-            console.log(itemId)
-          });
-      };
+     
+
+      // const handleDelete = (itemId: number) => {
+      //   axios
+      //     .delete(`https://cloudy-red-cheetah.cyclic.app/cart/${itemId}`)
+      //     .then(res => {
+      //       console.log('Item deleted successfully.');
+      //       setcartData(prevData => prevData.filter(item => item.id !== itemId));
+      //     })
+      //     .catch(error => {
+      //       // Handle error
+      //       console.error('Error deleting item:', error);
+      //     });
+      // };
       
       
       
@@ -101,23 +100,25 @@ const CartPage=()=>{
       };
     
       const discount = calculateDiscount();
-      const deliveryCharge = 100;
+      const deliveryCharge = 50;
       const totalAmount = Math.floor( subtotal - discount + deliveryCharge);
 
 const Navigate=useNavigate()
 
 const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   e.preventDefault();
-  Navigate(`./Payment`)
+  Navigate(`/checkoutpage`)
 
 };
 
     return <>
    <Navbar/>
-    <Box p={"2%"}>
+    <Box p={"2%"} >
         <Heading>Your Shoping Cart</Heading>
-        <Box display={"flex"} >
-                    <Box w={"65%"}  >
+        <Flex flexDirection={{ base: "column", md: "row" }}
+   
+       >
+                    <Box   w={{ base: "100%", md: "70%" }} >
                     <TableContainer >
                         {cartData.length===0?"EMPTY":""}
                 <Table variant='simple' >
@@ -133,7 +134,7 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 
                 <Tbody>
                     
-                {/* {cartData.length===0?"Cart Empty":  */
+                {
                 cartData?.map((e,i)=>
                 (
             
@@ -156,7 +157,7 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
                     }
                 </Td>
                 
-                    <Td><Button onClick={()=>handleDelete(e.id)}><DeleteIcon/></Button></Td>
+                    {/* <Td><Button onClick={()=>handleDelete(e.id)}><DeleteIcon/></Button></Td> */}
                     
                 </Tr>
                 ))
@@ -179,7 +180,7 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 
            
                     </Box>
-                <Box w={"25%"}>
+                <Box  w={{ base: "100%", md: "25%" }}>
                                     <Card>
                     <CardHeader>
                         <Heading size='md'>    Order Summary</Heading>
@@ -243,10 +244,12 @@ const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
                     </Card>
 
                 </Box>
-        </Box>
+        </Flex>
         <Text border={"2px solid black"} w={"100px"} textAlign={"center"} borderRadius={"5px"} margin={"auto"}>
-          Cart Updata
+       
+        Cart Updata
         </Text>
+       
     </Box>
     <Footer/>
     </>
