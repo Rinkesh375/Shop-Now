@@ -83,9 +83,9 @@ const Navbar = () => {
             </MenuItem>
             { !isAuthenticated?   <MenuItem as="a" href="/login">
               Login
-            </MenuItem> :<MenuItem><Button onClick={handleLogout} disabled={!isAuthenticated}  bg={"white"}>
+            </MenuItem> :<Button onClick={handleLogout} disabled={!isAuthenticated}  bg={"white"} w={"100%"}>
       Logout
-    </Button></MenuItem>}
+    </Button>}
           </MenuList>
         </Menu>
       </Box>
