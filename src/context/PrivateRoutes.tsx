@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { AuthContext } from './Authcontext';
 
 
-const PrivateRouter: React.FC<{ children: JSX.Element }> = ({ children }) => {
+const PrivateRouters: React.FC<{ children: JSX.Element }> = ({ children }) => {
   const location = useLocation();
 
   const { isAuthenticated } = useContext(AuthContext);
@@ -16,4 +16,4 @@ const PrivateRouter: React.FC<{ children: JSX.Element }> = ({ children }) => {
   return children;
 };
 
-export default PrivateRouter;
+export default PrivateRouters;

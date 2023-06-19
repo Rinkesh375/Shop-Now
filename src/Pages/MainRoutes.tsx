@@ -19,7 +19,7 @@ import Login from "./login";
 import SignUp from "./signup";
 
 
-import PrivateRouter from "../context/PrivateRoute";
+import PrivateRouters from "../context/PrivateRoutes";
 import CartPage from "./cartPage";
 
 const MainRoutes = () => {
@@ -33,8 +33,8 @@ const MainRoutes = () => {
         <Route path={"/products/:id"} element={<SingleCard/>}></Route>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/cart" element={<PrivateRouter><CartPage/></PrivateRouter>}></Route>
-        <Route path="/checkoutpage" element={<CheckoutPage/>}></Route>
+        <Route path="/cart" element={<PrivateRouters><CartPage/></PrivateRouters>}></Route>
+        <Route path="/checkoutpage" element={<PrivateRouters><CheckoutPage/></PrivateRouters>}></Route>
       
        
         
