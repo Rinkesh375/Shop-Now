@@ -1,33 +1,25 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, ReactNode } from 'react';
 
 interface AuthContextData {
   isAuthenticated: boolean;
-  login: () => void;
-  logout: () => void;
+  setIsAuthenticated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const AuthContext = createContext<AuthContextData>({
   isAuthenticated: false,
-  login: () => {},
-  logout: () => {},
+  setIsAuthenticated: () => {},
 });
 
-const AuthProvider: React.FC = ({ children}:any) => {
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const login = () => {
-    // Perform any necessary token validation or decoding here
-    setIsAuthenticated(true);
-  };
-
-  const logout = () => {
-    setIsAuthenticated(false);
-  };
 
   const authContextValue: AuthContextData = {
     isAuthenticated,
-    login,
-    logout,
+    setIsAuthenticated,
   };
 
   return (

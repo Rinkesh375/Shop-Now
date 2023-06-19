@@ -4,20 +4,19 @@ import { Routes } from "react-router-dom";
 import Home from "./Home";
 import Cart from "./Cart";
 import SingleCard from "../Componants/SingleCard";
-import CartPage from "./cartPage";
 import CheckoutPage from "./Checkout1";
-import Login from "./login";
-import SignUp from "./signup";
-// import AdminAddProducts from 'src/Pages/AdminAddProducts';
-// import AdminEditPage from 'src/Pages/AdminEditPage';
-// import AdminLoginPage from 'src/Pages/AdminLoginPage';
-// import AdminProductPage from 'src/Pages/AdminProductPage';
-// import PrivateRoute from 'src/components/PrivateRoute';
 import AdminProductPage from "./AdminProductPage";
 import AdminLoginPage from "./AdminLoginPage";
 import PrivateRoute from "../components/PrivateRoute";
 import AdminAddProducts from "./AdminAddProducts";
 import AdminEditProduct from "./AdminEditPage";
+import Login from "./login";
+import SignUp from "./signup";
+
+import PrivateRouter from "../context/PrivateRoute";
+import CartPage from "./cartPage";
+
+
 
 
 
@@ -29,10 +28,13 @@ const MainRoutes = () => {
         <Route path="/collection"></Route>
         <Route path="/products" element={<Cart />}></Route>
         <Route path={"/products/:id"} element={<SingleCard/>}></Route>
-        <Route path="/cart" element={<CartPage/>}/>
-        <Route path="/checkoutpage" element={<CheckoutPage/>}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}></Route>
+        <Route path="/cart" element={<PrivateRouter><CartPage/></PrivateRouter>}></Route>
+        <Route path="/checkoutpage" element={<CheckoutPage/>}></Route>
+      
+       
+        
         <Route path='/admin-login' element={<AdminLoginPage/>} />
             <Route path='/admin-products' element={<PrivateRoute><AdminProductPage/></PrivateRoute>} />
             <Route path='/admin-add-product' element={<PrivateRoute><AdminAddProducts/></PrivateRoute>}/>

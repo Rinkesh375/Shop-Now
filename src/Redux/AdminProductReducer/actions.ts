@@ -15,7 +15,7 @@ export const  getAdminProudcts = (dispatch:Dispatch,queriesObject:any)=>()=>{
   
     dispatch({type:ADMIN_GET_PRODUCT_LOADING})
     try {
-        axios.get(`http://localhost:8080/products`,queriesObject)
+        axios.get(`https://shop-now-api-pz3r.onrender.com/data`,queriesObject)
         .then(req=>{
       
           dispatch({type:ADMIN_GET_PRODUCT_SUCCESS,payload:req.data,totalResult:req.headers['x-total-count']})
@@ -27,7 +27,7 @@ export const  getAdminProudcts = (dispatch:Dispatch,queriesObject:any)=>()=>{
 
 
 export const deleteAdminProduct = (id:number)=>{
-       return  axios.delete(`http://localhost:8080/products/${id}`)
+       return  axios.delete(`https://shop-now-api-pz3r.onrender.com/data/${id}`)
 }
 
 

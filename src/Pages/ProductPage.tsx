@@ -27,10 +27,10 @@ import { useSearchParams } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import Navbar from "../Componants/Navbar";
-import Footer from "../Componants/Footer";
+// import Navbar from "../Componants/Navbar";
+// import Footer from "../Componants/Footer";
 
-export default function SimpleSidebar({ children }: { children: ReactNode }) {
+export default function ProductSidebar({ children }: { children: ReactNode }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -61,8 +61,8 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <Navbar />
-      <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+      {/* <Navbar /> */}
+      <Box bg={useColorModeValue("gray.100", "gray.900")}>
         <SidebarContent
           onClose={() => onClose}
           display={{ base: "none", md: "block" }}
@@ -80,7 +80,8 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
           onClose={onClose}
           returnFocusOnClose={false}
           onOverlayClick={onClose}
-          size="full">
+          // size="full"
+        >
           <DrawerContent>
             <SidebarContent
               onClose={onClose}
@@ -99,7 +100,7 @@ export default function SimpleSidebar({ children }: { children: ReactNode }) {
           {children}
         </Box>
       </Box>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
@@ -178,44 +179,6 @@ const SidebarContent = ({
   );
 };
 
-// interface NavItemProps extends FlexProps {
-//   icon: IconType;
-//   children: ReactText;
-// }
-/*const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
-  return (
-    <Link
-      href="#"
-      style={{ textDecoration: "none" }}
-      _focus={{ boxShadow: "none" }}>
-      <Flex
-        align="center"
-        p="4"
-        mx="4"
-        borderRadius="lg"
-        role="group"
-        cursor="pointer"
-        _hover={{
-          bg: "cyan.400",
-          color: "white",
-        }}
-        {...rest}>
-        {icon && (
-          <Icon
-            mr="4"
-            fontSize="16"
-            _groupHover={{
-              color: "white",
-            }}
-            as={icon}
-          />
-        )}
-        {children}
-      </Flex>
-    </Link>
-  );
-};
- */
 interface MobileProps extends FlexProps {
   onOpen: () => void;
 }

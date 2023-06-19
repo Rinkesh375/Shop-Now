@@ -1,5 +1,5 @@
 import { AppDispatch } from "../store";
-import { getProductsAPI, updateProuctAPI } from "./prooduct.api";
+import { getProductsAPI, updateCartAPI } from "./prooduct.api";
 import * as types from "./product.type";
 import { ProductDatatype } from "../../type";
 
@@ -40,11 +40,11 @@ const getProductSuccess = (data: ProductDatatype[]): IGetProductSuccess => {
   return { type: types.GET_PRODUCTS_SUCCESS, payload: data };
 };
 
-// const updateProductSuccess = (
-//   payload: ProductDatatype
-// ): IUpdateProductSuccess => {
-//   return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
-// };
+const updateProductSuccess = (
+  payload: ProductDatatype
+): IUpdateProductSuccess => {
+  return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
+};
 
 export const getProducts =
   (getProductsParam?: {
@@ -61,13 +61,13 @@ export const getProducts =
       dispatch(productError());
     }
   };
-
-// export const updateProduct =
-//   (id: number, payload: { title: string; price: number }): any =>
+// payload: { title: string; price: number }
+// export const updateCart =
+//   (payload: ProductDatatype): any =>
 //   async (dispatch: AppDispatch) => {
 //     dispatch(productRequest());
 //     try {
-//       let data = await updateProuctAPI(id, payload);
+//       let data = await updateCartAPI(payload);
 //       if (data) {
 //         dispatch(updateProductSuccess(data));
 //       }
