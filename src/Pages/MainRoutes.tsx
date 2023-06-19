@@ -22,13 +22,6 @@ import SignUp from "./signup";
 import PrivateRouter from "../context/PrivateRoute";
 import CartPage from "./cartPage";
 
-
-
-
-// import CartPage from "./CartPage";
-import PrivateRouter from "../context/PrivateRoute";
-import CartPage from "./cartPage";
-
 const MainRoutes = () => {
   return (
     <>
