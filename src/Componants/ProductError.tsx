@@ -1,6 +1,6 @@
 import { Box, Image } from "@chakra-ui/react";
 import React from "react";
-import image from "../Images/Product_error_01.gif";
+import image from "../Images/Product_error_02.svg";
 
 const ProductError = () => {
   return (
