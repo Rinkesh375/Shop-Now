@@ -1,5 +1,7 @@
 import { AppDispatch } from "../store";
-import { getProductsAPI, updateCartAPI, getSortAPI } from "./prooduct.api";
+
+import { getProductsAPI, updateCartAPI } from "./prooduct.api";
+
 import * as types from "./product.type";
 import { ProductDatatype } from "../../type";
 
@@ -44,12 +46,14 @@ const productError = (): IProductError => {
 const getProductSuccess = (data: ProductDatatype[]): IGetProductSuccess => {
   return { type: types.GET_PRODUCTS_SUCCESS, payload: data };
 };
+
 // const sortProductSuccess = (data: ProductDatatype[]): IGetProductSuccess => {
 //   return { type: types.SORT_PRODUCTS_SUCCESS, payload: data };
 // };
 const sortProductSuccess = (data: ProductDatatype[]): ISortProductSuccess => {
   return { type: types.SORT_PRODUCTS_SUCCESS, payload: data };
 };
+
 
 const updateProductSuccess = (
   payload: ProductDatatype
@@ -72,6 +76,7 @@ export const getProducts =
       dispatch(productError());
     }
   };
+
 export const SortProducts =
   (getProductsParam?: {
     params: { category: string[]; gender?: string[]; order?: string };
@@ -87,6 +92,7 @@ export const SortProducts =
       dispatch(productError());
     }
   };
+
 // payload: { title: string; price: number }
 // export const updateCart =
 //   (payload: ProductDatatype): any =>

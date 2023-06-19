@@ -28,7 +28,7 @@ const CartPage=()=>{
 
    async function cartdata(){
     try {
-        await axios.get("https://cloudy-red-cheetah.cyclic.app/cart")
+        await axios.get("https://shop-now-api-pz3r.onrender.com/cart")
         .then(res=>{
             setcartData(res.data)
             setQuantity(Array(res.data.length).fill(1));
