@@ -4,17 +4,17 @@ import React, { useEffect, useState } from "react";
 // import { getData } from "../Redux/Product/action";
 import ProductError from "./ProductError";
 import CartCard from "./CartCard";
-import { getProducts } from "../Redux/Product/product.action";
+import { SortProducts, getProducts } from "../Redux/Product/product.action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import { useSearchParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function CartList() {
   const { loading, error, data } = useAppSelector(
     (store: any) => store.ProuductReducer
   );
-  console.log(loading, error, data);
+  // console.log(loading, error, data);
   const dispatch: any = useAppDispatch();
   const [searchParams] = useSearchParams();
   const [page, setPage] = useState(1);
@@ -34,8 +34,8 @@ function CartList() {
     params: {
       category: searchParams.getAll("category"),
       gender: searchParams.getAll("gender"),
-      _sort: searchParams.get("order") && "price",
       _order: searchParams.get("order"),
+      _sort: searchParams.get("order") ? "price" : undefined,
       _page: page + 1,
       _limit: 15,
     },
@@ -47,6 +47,10 @@ function CartList() {
   useEffect(() => {
     dispatch(getProducts(obj));
   }, [searchParams, page]);
+
+  // useEffect(() => {
+  //   dispatch(SortProducts(obj));
+  // }, [searchParams, page]);
   return (
     <>
       {/* {loading ? (

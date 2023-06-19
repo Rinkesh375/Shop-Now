@@ -52,10 +52,16 @@ export default function ProductSidebar({ children }: { children: ReactNode }) {
   };
 
   React.useEffect(() => {
-    let params: { category?: string[]; gender?: string[]; order?: string } = {};
+    let params: {
+      category?: string[];
+      gender?: string[];
+      order?: string;
+      _sort?: string;
+    } = {};
     if (category.length) params.category = category;
     if (gender.length) params.gender = gender;
     if (order.length) params.order = order;
+    if (order.length) params._sort = "price";
     setSearchParams(params);
   }, [category, gender, order]);
 

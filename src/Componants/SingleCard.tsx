@@ -52,7 +52,9 @@ export default function SingleCard() {
 
   const [addcart, setAddcart] = React.useState<boolean>(false);
   const [datas, setData] = React.useState<ProductDatatype>(initialProduct);
-  console.log("omkar", datas);
+
+  // console.log("omkar", datas);
+
 
   const handleCart = () => {
     if (addcart === false) {
@@ -61,7 +63,9 @@ export default function SingleCard() {
     setAddcart(true);
   };
   const { id } = useParams<string>();
-  console.log(id);
+
+  // console.log(id);
+
 
   React.useEffect(() => {
     singleuser(id).then((res) => {

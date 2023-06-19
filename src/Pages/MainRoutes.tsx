@@ -4,7 +4,12 @@ import { Routes } from "react-router-dom";
 import Home from "./Home";
 import Cart from "./Cart";
 import SingleCard from "../Componants/SingleCard";
+
+
+
+
 import CheckoutPage from "./Checkout1";
+
 import AdminProductPage from "./AdminProductPage";
 import AdminLoginPage from "./AdminLoginPage";
 import PrivateRoute from "../components/PrivateRoute";
@@ -13,12 +18,16 @@ import AdminEditProduct from "./AdminEditPage";
 import Login from "./login";
 import SignUp from "./signup";
 
+
 import PrivateRouter from "../context/PrivateRoute";
 import CartPage from "./cartPage";
 
 
 
 
+// import CartPage from "./CartPage";
+import PrivateRouter from "../context/PrivateRoute";
+import CartPage from "./cartPage";
 
 const MainRoutes = () => {
   return (
@@ -27,6 +36,7 @@ const MainRoutes = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/collection"></Route>
         <Route path="/products" element={<Cart />}></Route>
+
         <Route path={"/products/:id"} element={<SingleCard/>}></Route>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}></Route>
@@ -40,6 +50,7 @@ const MainRoutes = () => {
             <Route path='/admin-add-product' element={<PrivateRoute><AdminAddProducts/></PrivateRoute>}/>
             <Route path='/admin-edit-product/:id' element={<PrivateRoute><AdminEditProduct/></PrivateRoute>}/>
         
+
         <Route></Route>
       </Routes>
     </>

@@ -32,6 +32,12 @@ const reducer = (
         loading: false,
         data: [...oldState.data, ...action.payload],
       };
+    case types.SORT_PRODUCTS_SUCCESS:
+      return {
+        ...oldState,
+        loading: false,
+        data: action.payload,
+      };
     case types.UPDATE_PRODUCT_SUCCESS:
       return {
         ...oldState,
