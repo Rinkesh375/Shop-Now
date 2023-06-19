@@ -7,7 +7,6 @@ import SingleCard from "../Componants/SingleCard";
 
 import CheckoutPage from "./Checkout1";
 
-
 // import AdminAddProducts from 'src/Pages/AdminAddProducts';
 // import AdminEditPage from 'src/Pages/AdminEditPage';
 // import AdminLoginPage from 'src/Pages/AdminLoginPage';
@@ -21,12 +20,9 @@ import AdminEditProduct from "./AdminEditPage";
 import Login from "./login";
 import SignUp from "./signup";
 
+// import CartPage from "./CartPage";
 import PrivateRouter from "../context/PrivateRoute";
-import CartPage from "./CartPage";
-
-
-
-
+import CartPage from "./cartPage";
 
 const MainRoutes = () => {
   return (
@@ -35,19 +31,44 @@ const MainRoutes = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/collection"></Route>
         <Route path="/products" element={<Cart />}></Route>
-        <Route path={"/products/:id"} element={<SingleCard/>}></Route>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/signup" element={<SignUp/>}></Route>
-        <Route path="/cart" element={<PrivateRouter><CartPage/></PrivateRouter>}></Route>
-        <Route path="/checkoutpage" element={<CheckoutPage/>}></Route>
-      
-       
-        
-        <Route path='/admin-login' element={<AdminLoginPage/>} />
-            <Route path='/admin-products' element={<PrivateRoute><AdminProductPage/></PrivateRoute>} />
-            <Route path='/admin-add-product' element={<PrivateRoute><AdminAddProducts/></PrivateRoute>}/>
-            <Route path='/admin-edit-product/:id' element={<PrivateRoute><AdminEditProduct/></PrivateRoute>}/>
-        
+        <Route path={"/products/:id"} element={<SingleCard />}></Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />}></Route>
+        <Route
+          path="/cart"
+          element={
+            <PrivateRouter>
+              <CartPage />
+            </PrivateRouter>
+          }></Route>
+        <Route path="/checkoutpage" element={<CheckoutPage />}></Route>
+
+        <Route path="/admin-login" element={<AdminLoginPage />} />
+        <Route
+          path="/admin-products"
+          element={
+            <PrivateRoute>
+              <AdminProductPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin-add-product"
+          element={
+            <PrivateRoute>
+              <AdminAddProducts />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/admin-edit-product/:id"
+          element={
+            <PrivateRoute>
+              <AdminEditProduct />
+            </PrivateRoute>
+          }
+        />
+
         <Route></Route>
       </Routes>
     </>
