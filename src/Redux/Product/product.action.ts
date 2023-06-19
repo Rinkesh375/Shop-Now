@@ -1,6 +1,6 @@
 import { AppDispatch } from "../store";
 
-import { getProductsAPI, updateCartAPI } from "./prooduct.api";
+import { getProductsAPI, getSortAPI } from "./prooduct.api";
 
 import * as types from "./product.type";
 import { ProductDatatype } from "../../type";
@@ -54,12 +54,11 @@ const sortProductSuccess = (data: ProductDatatype[]): ISortProductSuccess => {
   return { type: types.SORT_PRODUCTS_SUCCESS, payload: data };
 };
 
-
-const updateProductSuccess = (
-  payload: ProductDatatype
-): IUpdateProductSuccess => {
-  return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
-};
+// const updateProductSuccess = (
+//   payload: ProductDatatype
+// ): IUpdateProductSuccess => {
+//   return { type: types.UPDATE_PRODUCT_SUCCESS, payload };
+// };
 
 export const getProducts =
   (getProductsParam?: {
