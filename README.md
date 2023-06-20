@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Shop-now
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Shop-now is a full-stack web application that provides a platform for E-commerce, allowing users to discover and purchase fashionable clothing items.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **User Authentication**: Users can create an account, log in, and manage their profile information. This ensures a personalized experience and restricts certain features to registered users only.
+- <img src="/flying-word-4664/src/Images/BrforeLogin.png">
+  <img src="/flying-word-4664/src/Images/Login.png">
+  <img src="/flying-word-4664/src/Images/AfterLogin.png">
 
-### `npm start`
+- **Landing Page**: Our landing page serves as an attractive introduction to the web app. It includes a convenient navigation bar, a visually appealing carousel that showcases rotating images or content, and informative cards highlighting recent purchases. A footer with navigation links and contact information enhances usability.
+  <img src="/flying-word-4664/src/Images/homeCurosel.png">
+  <img src="/flying-word-4664/src/Images/HomeRecent.png">
+  <img src="/flying-word-4664/src/Images/HomeFooter.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Product Section**: The product section is designed to showcase a wide range of fashion items. Sortable cards display essential information such as product name, image, rating, and a view button. Additionally, infinite scroll functionality allows for seamless browsing, ensuring that users can explore numerous products effortlessly.
+  <img src="/flying-word-4664/src/Images/ProductSection.png">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Login/Logout**: Secure user authentication is implemented using Firebase. Users can log in to their accounts using their email and password, with only valid credentials being accepted. The logout feature allows users to securely end their sessions, ensuring the protection of their personal information.
 
-### `npm test`
+- **Responsive Design**: The web app is developed with a responsive design approach, ensuring that users can access and interact with the app seamlessly across various devices and screen sizes. Whether users access the app from their desktop computers, tablets, or mobile phones, the layout and functionality remain consistent.
+  <img src="/flying-word-4664/src/Images/ResponsiveDesktop.png">
+  <img src="/flying-word-4664/src/Images/ResposciveTablet.png">
+  <img src="/flying-word-4664/src/Images/RespociveMobile.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Admin Section**: The Admin Section provides authorized users with powerful tools for managing the system. It offers CRUD operations (Create, Read, Update, Delete) for manipulating system data, allowing administrators to efficiently create, view, update, and delete records as needed. The section also includes statistics and analytics for monitoring application performance, providing insights into user engagement and other key metrics.
+  <img src="/flying-word-4664/src/Images/AdminLogin.png">
+  <img src="/flying-word-4664/src/Images/AdminPage.png">
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Frontend**: The Frontend of the web app is built using HTML, CSS, JavaScript, and Chakra UI. We leverage the React framework with TypeScript to create dynamic and interactive user interfaces.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Backend**: The backend utilizes Cyclic for efficient database interactions. It serves API endpoints that the Frontend consumes to access and manipulate data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Deployment**: The web app is deployed on the Vercel cloud platform, ensuring accessibility and scalability.
