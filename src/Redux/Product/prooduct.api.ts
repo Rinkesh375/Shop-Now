@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 
 import { ProductDatatype } from "../../type";
 
-let URL = "https://shop-now-api-pz3r.onrender.com";
+let URL = "https://shop-now-api-pz3r.onrender .com";
 
 export const getProductsAPI = async (getProductsParam?: {
   // params: { category: string[] };
