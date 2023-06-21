@@ -2,6 +2,8 @@
 
 Shop-now is a full-stack web application that provides a platform for E-commerce, allowing users to discover and purchase fashionable clothing items.
 
+# Vercel Deployed link
+https://shop-now-eight.vercel.app/
 ## Features
 
 - **User Authentication**: Users can create an account, log in, and manage their profile information. This ensures a personalized experience and restricts certain features to registered users only.
@@ -16,6 +18,10 @@ Shop-now is a full-stack web application that provides a platform for E-commerce
 
 - **Product Section**: The product section is designed to showcase a wide range of fashion items. Sortable cards display essential information such as product name, image, rating, and a view button. Additionally, infinite scroll functionality allows for seamless browsing, ensuring that users can explore numerous products effortlessly.
   ![ProductSection](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/6e56d547-e816-4658-92d9-8acea1ef323c)
+
+  **Cart Section**
+![image](https://github.com/Rinkesh375/flying-word-4664/assets/112814583/8fb36555-7fe7-4210-a031-ed0690804788)
+
 
 - **Login/Logout**: Secure user authentication is implemented using Firebase. Users can log in to their accounts using their email and password, with only valid credentials being accepted. The logout feature allows users to securely end their sessions, ensuring the protection of their personal information.
 
