@@ -4,6 +4,9 @@ Shop-now is a full-stack web application that provides a platform for E-commerce
 
 # Vercel Deployed link
 https://shop-now-eight.vercel.app/
+# Tech Stack
+HTML | CSS | JavaScript |  React.js  | TypeScript | Chakra UI
+
 ## Features
 
 - **User Authentication**: Users can create an account, log in, and manage their profile information. This ensures a personalized experience and restricts certain features to registered users only.
