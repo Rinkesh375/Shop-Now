@@ -5,9 +5,14 @@ Shop-now is a full-stack web application that provides a platform for E-commerce
 # Vercel Deployed link
 https://shop-now-eight.vercel.app/
 # Tech Stack
-HTML | CSS | JavaScript |  React.js  | TypeScript | Chakra UI
+HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-server
 
 ## Features
+
+- **Admin Section**: The Admin Section provides authorized users with powerful tools for managing the system. It offers CRUD operations (Create, Read, Update, Delete) for manipulating system data, allowing administrators to efficiently create, view, update, and delete records as needed. The section also includes statistics and analytics for monitoring application performance, providing insights into user engagement and other key metrics.
+  ![AdminLogin](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/01e87533-a545-48fb-93e0-c0c52e694496)
+  ![AdminPage](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/b0e903c6-32ca-44ab-ba02-06345bd4d5c3)
+
 
 - **User Authentication**: Users can create an account, log in, and manage their profile information. This ensures a personalized experience and restricts certain features to registered users only.
   ![BrforeLogin](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/3e2500e4-38aa-4a25-844d-db5927dc1a4f)
@@ -33,9 +38,7 @@ HTML | CSS | JavaScript |  React.js  | TypeScript | Chakra UI
   ![ResposciveTablet](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/420d9679-458d-4aa4-b94f-5bc0ee00413e)
   ![RespociveMobile](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/171cd0fe-589a-41f8-8664-7858f4247376)
 
-- **Admin Section**: The Admin Section provides authorized users with powerful tools for managing the system. It offers CRUD operations (Create, Read, Update, Delete) for manipulating system data, allowing administrators to efficiently create, view, update, and delete records as needed. The section also includes statistics and analytics for monitoring application performance, providing insights into user engagement and other key metrics.
-  ![AdminLogin](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/01e87533-a545-48fb-93e0-c0c52e694496)
-  ![AdminPage](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/b0e903c6-32ca-44ab-ba02-06345bd4d5c3)
+
 
 ## Technologies Used
 
