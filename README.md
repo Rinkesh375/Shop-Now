@@ -15,9 +15,14 @@ HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-serv
   ![AdminPage](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/b0e903c6-32ca-44ab-ba02-06345bd4d5c3)
 
 
+
+
  - **Admin Section Edit and Update Product**: This Section will Provide a authorized user to update and edit proudct.
   ![edit image](https://github.com/Rinkesh375/flying-word-4664/assets/107518782/fff34051-5bc4-4224-a852-ad6192a8c76e)
   ![add product](https://github.com/Rinkesh375/flying-word-4664/assets/107518782/ffd1255c-31a7-43e7-85f2-1dd3b76896e6)
+
+
+
 
  - **Admin Products Page filter functionality**:  This Section will Provide a authorized user to get product from using filter,sorting price.
   ![filter sort functionality](https://github.com/Rinkesh375/flying-word-4664/assets/107518782/b99db4ee-8246-4e3d-a344-f56200ad4977)
@@ -30,19 +35,33 @@ HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-serv
   ![Login](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/55e6483b-a9a4-426a-8186-eb0f0d6579e7)
   ![AfterLogin](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/299aa908-09fc-4ffe-b64b-b5b972b2569f)
 
+
+
+
 - **Landing Page**: Our landing page serves as an attractive introduction to the web app. It includes a convenient navigation bar, a visually appealing carousel that showcases rotating images or content, and informative cards highlighting recent purchases. A footer with navigation links and contact information enhances usability.
   ![homeCurosel](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/9d07bc99-9fbb-45b4-9aef-bf749d186dea)
   ![HomeRecent](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/9892c7a3-2979-4d2e-ab02-40a191789584)
   ![HomeFooter](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/9f27e474-2405-48d5-bf27-e6206ae129fb)
 
+
+
+
 - **Product Section**: The product section is designed to showcase a wide range of fashion items. Sortable cards display essential information such as product name, image, rating, and a view button. Additionally, infinite scroll functionality allows for seamless browsing, ensuring that users can explore numerous products effortlessly.
   ![ProductSection](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/6e56d547-e816-4658-92d9-8acea1ef323c)
+
+
+
 
   **Cart Section**
 ![image](https://github.com/Rinkesh375/flying-word-4664/assets/112814583/8fb36555-7fe7-4210-a031-ed0690804788)
 
 
+
+
 - **Login/Logout**: Secure user authentication is implemented using Firebase. Users can log in to their accounts using their email and password, with only valid credentials being accepted. The logout feature allows users to securely end their sessions, ensuring the protection of their personal information.
+
+
+
 
 - **Responsive Design**: The web app is developed with a responsive design approach, ensuring that users can access and interact with the app seamlessly across various devices and screen sizes. Whether users access the app from their desktop computers, tablets, or mobile phones, the layout and functionality remain consistent.
   ![ResponsiveDesktop](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/e8d61b7b-7367-43de-8434-4099a9f89b0b)

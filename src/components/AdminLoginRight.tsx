@@ -12,7 +12,7 @@ import { adminLogin } from '../Redux/AdminProductReducer/actions';
 
 const AdminLoginRight = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  const [adminInfo, setAdminInfo] = useState<AdminInput>({ email: "", password: "" });
+  const [adminInfo, setAdminInfo] = useState<AdminInput>({ email: "rinkeshujjwal16@gmail.com", password: "12345" });
   const toast = useToast();
   const navigator = useNavigate();
   const { email, password } = adminInfo;
