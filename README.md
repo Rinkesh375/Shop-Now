@@ -8,7 +8,7 @@ https://shop-now-eight.vercel.app/
 HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-server
 
 ## Features
-- **Admin Section Login URL** <a href="https://shop-now-eight.vercel.app/admin-login" target="_blank">Visit to admin login page</a> 
+- **Admin Section Login URL** [Visit to admin login page](https://shop-now-eight.vercel.app/admin-login){:target="_blank"}
 
 - **Admin Section**: The Admin Section provides authorized users with powerful tools for managing the system. It offers CRUD operations (Create, Read, Update, Delete) for manipulating system data, allowing administrators to efficiently create, view, update, and delete records as needed. The section also includes statistics and analytics for monitoring application performance, providing insights into user engagement and other key metrics.
   ![AdminLogin](https://github.com/Rinkesh375/flying-word-4664/assets/119350956/01e87533-a545-48fb-93e0-c0c52e694496)
