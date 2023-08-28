@@ -5,7 +5,7 @@ Shop-now is a full-stack web application that provides a platform for E-commerce
 # Vercel Deployed link
 https://shop-now-eight.vercel.app/
 # Tech Stack
-HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-server
+HTML | CSS | JavaScript |  TypeScript |  React.js | Redux  | Chakra UI | json-server
 
 ## Features
  - **Admin Section Login URL** https://shop-now-eight.vercel.app/admin-login 
@@ -54,4 +54,4 @@ HTML | CSS | JavaScript |  React.js | Redux | TypeScript | Chakra UI | json-serv
 
 - **Backend**: The backend utilizes Cyclic for efficient database interactions. It serves API endpoints that the Frontend consumes to access and manipulate data.
 
-- **Deployment**: The web app is deployed on the Vercel cloud platform, ensuring accessibility and scalability.
+
