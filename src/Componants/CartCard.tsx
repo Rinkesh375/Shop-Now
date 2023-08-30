@@ -133,7 +133,7 @@ const CartCard = ({
         <Center p={2}>
             <Button w={"full"} maxW={"md"} colorScheme={"messenger"}>
               <Center>
-                <Text>Wiew Product</Text>
+                <Text>View Product</Text>
               </Center>
             </Button>
         </Center>

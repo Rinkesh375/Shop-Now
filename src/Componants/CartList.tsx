@@ -14,7 +14,7 @@ function CartList() {
   const { loading, error, data } = useAppSelector(
     (store: any) => store.ProuductReducer
   );
-  // console.log(loading, error, data);
+   console.log(data,"I am data")
   const dispatch: any = useAppDispatch();
   const [searchParams] = useSearchParams();
   const [page, setPage] = useState(1);
